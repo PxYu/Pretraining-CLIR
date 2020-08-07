@@ -1,0 +1,772 @@
+00:00:06 - Namespace(apex_level='O2', batch_size=8, cased=False, dataset='clef', debug=False, encoder_lr=2e-05, eval_step=1, full_doc_length=True, local_rank=2, model_path='/mnt/scratch/puxuan/long_qlm-rr/2151242/huggingface-0', model_type='mbert-long', num_epochs=20, num_ft_encoders=3, num_neg=1, projector_lr=2e-05, seed=611, source_lang='de', target_lang='en')
+00:00:15 - BertLongForXLRetrieval(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(105879, 768, padding_idx=0)
+      (position_embeddings): Embedding(1024, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (1): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (2): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (3): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (4): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (5): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (6): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (7): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (8): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (9): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (10): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (11): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+    (pooler): BertPooler(
+      (dense): Linear(in_features=768, out_features=768, bias=True)
+      (activation): Tanh()
+    )
+  )
+  (mlm_cls): BertOnlyMLMHead(
+    (predictions): BertLMPredictionHead(
+      (transform): BertPredictionHeadTransform(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      )
+      (decoder): Linear(in_features=768, out_features=105879, bias=True)
+    )
+  )
+  (seqcls_dropout): Dropout(p=0.1, inplace=False)
+  (seqcls_classifier): Linear(in_features=768, out_features=2, bias=True)
+)
+00:00:15 - Evaluating every 1 epochs ...
+00:00:15 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:00:15 - test has 35 queries ...
+00:00:15 - Data reading done ...
+00:00:21 - adding 9-th encoder to optimizer...
+00:00:21 - adding 10-th encoder to optimizer...
+00:00:21 - adding 11-th encoder to optimizer...
+00:00:22 - process[2]: training epoch 0 ...
+00:00:39 - process[2] - epoch 0 - train iter 197 - 17372.8 words/s - loss: 0.5397
+00:00:39 - process[2]: training epoch 1 ...
+00:00:57 - process[2] - epoch 1 - train iter 197 - 16652.1 words/s - loss: 0.4464
+00:00:57 - process[2]: training epoch 2 ...
+00:01:13 - process[2] - epoch 2 - train iter 197 - 17584.6 words/s - loss: 0.4349
+00:01:13 - process[2]: training epoch 3 ...
+00:01:30 - process[2] - epoch 3 - train iter 197 - 18333.6 words/s - loss: 0.3829
+00:01:30 - process[2]: training epoch 4 ...
+00:01:46 - process[2] - epoch 4 - train iter 197 - 18682.7 words/s - loss: 0.4387
+00:01:46 - process[2]: training epoch 5 ...
+00:02:03 - process[2] - epoch 5 - train iter 197 - 18259.0 words/s - loss: 0.3983
+00:02:03 - process[2]: training epoch 6 ...
+00:02:22 - process[2] - epoch 6 - train iter 197 - 15628.3 words/s - loss: 0.3515
+00:02:22 - process[2]: training epoch 7 ...
+00:02:39 - process[2] - epoch 7 - train iter 197 - 18038.4 words/s - loss: 0.3743
+00:02:39 - process[2]: training epoch 8 ...
+00:02:57 - process[2] - epoch 8 - train iter 197 - 16943.9 words/s - loss: 0.3741
+00:02:57 - process[2]: training epoch 9 ...
+00:03:12 - process[2] - epoch 9 - train iter 197 - 18897.3 words/s - loss: 0.3730
+00:03:12 - process[2]: training epoch 10 ...
+00:03:28 - process[2] - epoch 10 - train iter 197 - 18623.7 words/s - loss: 0.3800
+00:03:28 - process[2]: evaluating epoch 10 on dev ...
+00:04:25 - dev set during evaluation: 14160/14157
+00:04:25 - process[2] - dev - epoch 10 - mAP: 0.505 w/ 35 queries
+00:04:25 - process[2]: evaluating epoch 10 on test ...
+00:05:16 - test set during evaluation: 14980/14975
+00:05:16 - process[2] - test - epoch 10 - mAP: 0.499 w/ 35 queries
+00:05:16 - process[2]: training epoch 11 ...
+00:05:32 - process[2] - epoch 11 - train iter 197 - 18137.7 words/s - loss: 0.3755
+00:05:32 - process[2]: evaluating epoch 11 on dev ...
+00:06:27 - dev set during evaluation: 14160/14157
+00:06:27 - process[2] - dev - epoch 11 - mAP: 0.519 w/ 35 queries
+00:06:27 - process[2]: evaluating epoch 11 on test ...
+00:07:18 - test set during evaluation: 14980/14975
+00:07:18 - process[2] - test - epoch 11 - mAP: 0.498 w/ 35 queries
+00:07:18 - process[2]: training epoch 12 ...
+00:07:33 - process[2] - epoch 12 - train iter 197 - 19199.1 words/s - loss: 0.3385
+00:07:33 - process[2]: evaluating epoch 12 on dev ...
+00:08:28 - dev set during evaluation: 14160/14157
+00:08:28 - process[2] - dev - epoch 12 - mAP: 0.506 w/ 35 queries
+00:08:28 - process[2]: training epoch 13 ...
+00:08:44 - process[2] - epoch 13 - train iter 197 - 18367.0 words/s - loss: 0.3458
+00:08:44 - process[2]: evaluating epoch 13 on dev ...
+00:09:39 - dev set during evaluation: 14160/14157
+00:09:39 - process[2] - dev - epoch 13 - mAP: 0.501 w/ 35 queries
+00:09:39 - process[2]: training epoch 14 ...
+00:09:56 - process[2] - epoch 14 - train iter 197 - 17830.2 words/s - loss: 0.3322
+00:09:56 - process[2]: evaluating epoch 14 on dev ...
+00:10:49 - dev set during evaluation: 14160/14157
+00:10:49 - process[2] - dev - epoch 14 - mAP: 0.528 w/ 35 queries
+00:10:49 - process[2]: evaluating epoch 14 on test ...
+00:11:40 - test set during evaluation: 14980/14975
+00:11:40 - process[2] - test - epoch 14 - mAP: 0.509 w/ 35 queries
+00:11:40 - process[2]: training epoch 15 ...
+00:11:57 - process[2] - epoch 15 - train iter 197 - 17945.4 words/s - loss: 0.3047
+00:11:57 - process[2]: evaluating epoch 15 on dev ...
+00:12:50 - dev set during evaluation: 14160/14157
+00:12:50 - process[2] - dev - epoch 15 - mAP: 0.514 w/ 35 queries
+00:12:50 - process[2]: training epoch 16 ...
+00:13:08 - process[2] - epoch 16 - train iter 197 - 16964.8 words/s - loss: 0.3325
+00:13:08 - process[2]: evaluating epoch 16 on dev ...
+00:14:01 - dev set during evaluation: 14160/14157
+00:14:01 - process[2] - dev - epoch 16 - mAP: 0.514 w/ 35 queries
+00:14:01 - process[2]: training epoch 17 ...
+00:14:18 - process[2] - epoch 17 - train iter 197 - 16998.3 words/s - loss: 0.2979
+00:14:18 - process[2]: evaluating epoch 17 on dev ...
+00:15:11 - dev set during evaluation: 14160/14157
+00:15:11 - process[2] - dev - epoch 17 - mAP: 0.519 w/ 35 queries
+00:15:11 - process[2]: training epoch 18 ...
+00:15:27 - process[2] - epoch 18 - train iter 197 - 18588.4 words/s - loss: 0.3073
+00:15:27 - process[2]: evaluating epoch 18 on dev ...
+00:16:21 - dev set during evaluation: 14160/14157
+00:16:21 - process[2] - dev - epoch 18 - mAP: 0.518 w/ 35 queries
+00:16:21 - process[2]: training epoch 19 ...
+00:16:38 - process[2] - epoch 19 - train iter 197 - 18078.2 words/s - loss: 0.3116
+00:16:38 - process[2]: evaluating epoch 19 on dev ...
+00:17:32 - dev set during evaluation: 14160/14157
+00:17:32 - process[2] - dev - epoch 19 - mAP: 0.516 w/ 35 queries
+00:17:32 - [fold 1] best test MAP: 0.509 @ epoch 14
+00:17:32 - Evaluating every 1 epochs ...
+00:17:32 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:17:33 - test has 36 queries ...
+00:17:33 - Data reading done ...
+00:17:35 - adding 9-th encoder to optimizer...
+00:17:35 - adding 10-th encoder to optimizer...
+00:17:35 - adding 11-th encoder to optimizer...
+00:17:35 - process[2]: training epoch 0 ...
+00:17:51 - process[2] - epoch 0 - train iter 187 - 18188.3 words/s - loss: 0.5010
+00:17:51 - process[2]: training epoch 1 ...
+00:18:06 - process[2] - epoch 1 - train iter 187 - 17945.6 words/s - loss: 0.4634
+00:18:06 - process[2]: training epoch 2 ...
+00:18:20 - process[2] - epoch 2 - train iter 187 - 19233.3 words/s - loss: 0.4418
+00:18:20 - process[2]: training epoch 3 ...
+00:18:35 - process[2] - epoch 3 - train iter 187 - 18788.0 words/s - loss: 0.4455
+00:18:35 - process[2]: training epoch 4 ...
+00:18:50 - process[2] - epoch 4 - train iter 187 - 19932.9 words/s - loss: 0.3763
+00:18:50 - process[2]: training epoch 5 ...
+00:19:05 - process[2] - epoch 5 - train iter 187 - 18781.6 words/s - loss: 0.3636
+00:19:05 - process[2]: training epoch 6 ...
+00:19:20 - process[2] - epoch 6 - train iter 187 - 19203.2 words/s - loss: 0.3382
+00:19:20 - process[2]: training epoch 7 ...
+00:19:34 - process[2] - epoch 7 - train iter 187 - 20572.5 words/s - loss: 0.3381
+00:19:34 - process[2]: training epoch 8 ...
+00:19:50 - process[2] - epoch 8 - train iter 187 - 18061.0 words/s - loss: 0.3743
+00:19:50 - process[2]: training epoch 9 ...
+00:20:05 - process[2] - epoch 9 - train iter 187 - 19053.8 words/s - loss: 0.3176
+00:20:05 - process[2]: training epoch 10 ...
+00:20:21 - process[2] - epoch 10 - train iter 187 - 18083.6 words/s - loss: 0.3764
+00:20:21 - process[2]: evaluating epoch 10 on dev ...
+00:21:15 - dev set during evaluation: 14980/14975
+00:21:15 - process[2] - dev - epoch 10 - mAP: 0.521 w/ 35 queries
+00:21:15 - process[2]: evaluating epoch 10 on test ...
+00:22:09 - test set during evaluation: 15300/15294
+00:22:09 - process[2] - test - epoch 10 - mAP: 0.488 w/ 36 queries
+00:22:09 - process[2]: training epoch 11 ...
+00:22:24 - process[2] - epoch 11 - train iter 187 - 19187.2 words/s - loss: 0.3155
+00:22:24 - process[2]: evaluating epoch 11 on dev ...
+00:23:15 - dev set during evaluation: 14980/14975
+00:23:15 - process[2] - dev - epoch 11 - mAP: 0.494 w/ 35 queries
+00:23:15 - process[2]: training epoch 12 ...
+00:23:30 - process[2] - epoch 12 - train iter 187 - 19344.9 words/s - loss: 0.4108
+00:23:30 - process[2]: evaluating epoch 12 on dev ...
+00:24:21 - dev set during evaluation: 14980/14975
+00:24:21 - process[2] - dev - epoch 12 - mAP: 0.534 w/ 35 queries
+00:24:21 - process[2]: evaluating epoch 12 on test ...
+00:25:15 - test set during evaluation: 15300/15294
+00:25:15 - process[2] - test - epoch 12 - mAP: 0.490 w/ 36 queries
+00:25:15 - process[2]: training epoch 13 ...
+00:25:30 - process[2] - epoch 13 - train iter 187 - 19194.8 words/s - loss: 0.3117
+00:25:30 - process[2]: evaluating epoch 13 on dev ...
+00:26:22 - dev set during evaluation: 14980/14975
+00:26:22 - process[2] - dev - epoch 13 - mAP: 0.499 w/ 35 queries
+00:26:22 - process[2]: training epoch 14 ...
+00:26:37 - process[2] - epoch 14 - train iter 187 - 18860.5 words/s - loss: 0.3335
+00:26:37 - process[2]: evaluating epoch 14 on dev ...
+00:27:28 - dev set during evaluation: 14980/14975
+00:27:28 - process[2] - dev - epoch 14 - mAP: 0.495 w/ 35 queries
+00:27:28 - process[2]: training epoch 15 ...
+00:27:42 - process[2] - epoch 15 - train iter 187 - 20242.6 words/s - loss: 0.3099
+00:27:42 - process[2]: evaluating epoch 15 on dev ...
+00:28:34 - dev set during evaluation: 14980/14975
+00:28:34 - process[2] - dev - epoch 15 - mAP: 0.527 w/ 35 queries
+00:28:34 - process[2]: training epoch 16 ...
+00:28:48 - process[2] - epoch 16 - train iter 187 - 20129.1 words/s - loss: 0.3168
+00:28:48 - process[2]: evaluating epoch 16 on dev ...
+00:29:40 - dev set during evaluation: 14980/14975
+00:29:40 - process[2] - dev - epoch 16 - mAP: 0.508 w/ 35 queries
+00:29:40 - process[2]: training epoch 17 ...
+00:29:54 - process[2] - epoch 17 - train iter 187 - 19526.4 words/s - loss: 0.2624
+00:29:54 - process[2]: evaluating epoch 17 on dev ...
+00:30:46 - dev set during evaluation: 14980/14975
+00:30:46 - process[2] - dev - epoch 17 - mAP: 0.525 w/ 35 queries
+00:30:46 - process[2]: training epoch 18 ...
+00:31:01 - process[2] - epoch 18 - train iter 187 - 18661.5 words/s - loss: 0.3143
+00:31:01 - process[2]: evaluating epoch 18 on dev ...
+00:31:52 - dev set during evaluation: 14980/14975
+00:31:52 - process[2] - dev - epoch 18 - mAP: 0.542 w/ 35 queries
+00:31:52 - process[2]: evaluating epoch 18 on test ...
+00:32:45 - test set during evaluation: 15300/15294
+00:32:45 - process[2] - test - epoch 18 - mAP: 0.508 w/ 36 queries
+00:32:45 - process[2]: training epoch 19 ...
+00:33:00 - process[2] - epoch 19 - train iter 187 - 18460.1 words/s - loss: 0.2608
+00:33:00 - process[2]: evaluating epoch 19 on dev ...
+00:33:51 - dev set during evaluation: 14980/14975
+00:33:51 - process[2] - dev - epoch 19 - mAP: 0.526 w/ 35 queries
+00:33:51 - [fold 2] best test MAP: 0.508 @ epoch 18
+00:33:51 - Evaluating every 1 epochs ...
+00:33:51 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:33:52 - test has 35 queries ...
+00:33:52 - Data reading done ...
+00:33:53 - adding 9-th encoder to optimizer...
+00:33:53 - adding 10-th encoder to optimizer...
+00:33:53 - adding 11-th encoder to optimizer...
+00:33:54 - process[2]: training epoch 0 ...
+00:34:09 - process[2] - epoch 0 - train iter 196 - 19843.4 words/s - loss: 0.5194
+00:34:09 - process[2]: training epoch 1 ...
+00:34:23 - process[2] - epoch 1 - train iter 196 - 20176.1 words/s - loss: 0.4489
+00:34:23 - process[2]: training epoch 2 ...
+00:34:39 - process[2] - epoch 2 - train iter 196 - 19148.7 words/s - loss: 0.4180
+00:34:39 - process[2]: training epoch 3 ...
+00:34:54 - process[2] - epoch 3 - train iter 196 - 19401.4 words/s - loss: 0.4079
+00:34:54 - process[2]: training epoch 4 ...
+00:35:10 - process[2] - epoch 4 - train iter 196 - 18258.5 words/s - loss: 0.4124
+00:35:10 - process[2]: training epoch 5 ...
+00:35:26 - process[2] - epoch 5 - train iter 196 - 18614.5 words/s - loss: 0.4058
+00:35:26 - process[2]: training epoch 6 ...
+00:35:41 - process[2] - epoch 6 - train iter 196 - 19397.8 words/s - loss: 0.3055
+00:35:41 - process[2]: training epoch 7 ...
+00:35:56 - process[2] - epoch 7 - train iter 196 - 20020.5 words/s - loss: 0.3381
+00:35:56 - process[2]: training epoch 8 ...
+00:36:11 - process[2] - epoch 8 - train iter 196 - 19928.0 words/s - loss: 0.2844
+00:36:11 - process[2]: training epoch 9 ...
+00:36:26 - process[2] - epoch 9 - train iter 196 - 19173.3 words/s - loss: 0.3440
+00:36:26 - process[2]: training epoch 10 ...
+00:36:41 - process[2] - epoch 10 - train iter 196 - 19624.6 words/s - loss: 0.3187
+00:36:41 - process[2]: evaluating epoch 10 on dev ...
+00:37:42 - dev set during evaluation: 15300/15294
+00:37:42 - process[2] - dev - epoch 10 - mAP: 0.498 w/ 36 queries
+00:37:42 - process[2]: evaluating epoch 10 on test ...
+00:38:34 - test set during evaluation: 15480/15477
+00:38:34 - process[2] - test - epoch 10 - mAP: 0.506 w/ 35 queries
+00:38:34 - process[2]: training epoch 11 ...
+00:38:52 - process[2] - epoch 11 - train iter 196 - 17282.6 words/s - loss: 0.3371
+00:38:52 - process[2]: evaluating epoch 11 on dev ...
+00:39:44 - dev set during evaluation: 15300/15294
+00:39:44 - process[2] - dev - epoch 11 - mAP: 0.496 w/ 36 queries
+00:39:44 - process[2]: training epoch 12 ...
+00:39:59 - process[2] - epoch 12 - train iter 196 - 19528.1 words/s - loss: 0.3045
+00:39:59 - process[2]: evaluating epoch 12 on dev ...
+00:40:52 - dev set during evaluation: 15300/15294
+00:40:52 - process[2] - dev - epoch 12 - mAP: 0.502 w/ 36 queries
+00:40:52 - process[2]: evaluating epoch 12 on test ...
+00:41:45 - test set during evaluation: 15480/15477
+00:41:45 - process[2] - test - epoch 12 - mAP: 0.542 w/ 35 queries
+00:41:45 - process[2]: training epoch 13 ...
+00:42:00 - process[2] - epoch 13 - train iter 196 - 20228.9 words/s - loss: 0.2973
+00:42:00 - process[2]: evaluating epoch 13 on dev ...
+00:42:55 - dev set during evaluation: 15300/15294
+00:42:55 - process[2] - dev - epoch 13 - mAP: 0.505 w/ 36 queries
+00:42:55 - process[2]: evaluating epoch 13 on test ...
+00:43:47 - test set during evaluation: 15480/15477
+00:43:47 - process[2] - test - epoch 13 - mAP: 0.530 w/ 35 queries
+00:43:47 - process[2]: training epoch 14 ...
+00:44:02 - process[2] - epoch 14 - train iter 196 - 18916.7 words/s - loss: 0.3310
+00:44:02 - process[2]: evaluating epoch 14 on dev ...
+00:44:56 - dev set during evaluation: 15300/15294
+00:44:56 - process[2] - dev - epoch 14 - mAP: 0.491 w/ 36 queries
+00:44:56 - process[2]: training epoch 15 ...
+00:45:13 - process[2] - epoch 15 - train iter 196 - 18204.4 words/s - loss: 0.3195
+00:45:13 - process[2]: evaluating epoch 15 on dev ...
+00:46:05 - dev set during evaluation: 15300/15294
+00:46:05 - process[2] - dev - epoch 15 - mAP: 0.493 w/ 36 queries
+00:46:05 - process[2]: training epoch 16 ...
+00:46:19 - process[2] - epoch 16 - train iter 196 - 19131.5 words/s - loss: 0.2713
+00:46:19 - process[2]: evaluating epoch 16 on dev ...
+00:47:13 - dev set during evaluation: 15300/15294
+00:47:13 - process[2] - dev - epoch 16 - mAP: 0.504 w/ 36 queries
+00:47:13 - process[2]: training epoch 17 ...
+00:47:28 - process[2] - epoch 17 - train iter 196 - 19442.4 words/s - loss: 0.3023
+00:47:28 - process[2]: evaluating epoch 17 on dev ...
+00:48:22 - dev set during evaluation: 15300/15294
+00:48:22 - process[2] - dev - epoch 17 - mAP: 0.521 w/ 36 queries
+00:48:22 - process[2]: evaluating epoch 17 on test ...
+00:49:14 - test set during evaluation: 15480/15477
+00:49:14 - process[2] - test - epoch 17 - mAP: 0.516 w/ 35 queries
+00:49:14 - process[2]: training epoch 18 ...
+00:49:29 - process[2] - epoch 18 - train iter 196 - 19181.8 words/s - loss: 0.3326
+00:49:29 - process[2]: evaluating epoch 18 on dev ...
+00:50:23 - dev set during evaluation: 15300/15294
+00:50:23 - process[2] - dev - epoch 18 - mAP: 0.509 w/ 36 queries
+00:50:23 - process[2]: training epoch 19 ...
+00:50:38 - process[2] - epoch 19 - train iter 196 - 18909.8 words/s - loss: 0.2599
+00:50:38 - process[2]: evaluating epoch 19 on dev ...
+00:51:32 - dev set during evaluation: 15300/15294
+00:51:32 - process[2] - dev - epoch 19 - mAP: 0.519 w/ 36 queries
+00:51:32 - [fold 3] best test MAP: 0.516 @ epoch 17
+00:51:32 - Evaluating every 1 epochs ...
+00:51:32 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:51:33 - test has 35 queries ...
+00:51:33 - Data reading done ...
+00:51:34 - adding 9-th encoder to optimizer...
+00:51:34 - adding 10-th encoder to optimizer...
+00:51:34 - adding 11-th encoder to optimizer...
+00:51:35 - process[2]: training epoch 0 ...
+00:51:52 - process[2] - epoch 0 - train iter 207 - 18189.2 words/s - loss: 0.5370
+00:51:52 - process[2]: training epoch 1 ...
+00:52:08 - process[2] - epoch 1 - train iter 207 - 19290.7 words/s - loss: 0.4540
+00:52:08 - process[2]: training epoch 2 ...
+00:52:24 - process[2] - epoch 2 - train iter 207 - 19365.1 words/s - loss: 0.4381
+00:52:24 - process[2]: training epoch 3 ...
+00:52:41 - process[2] - epoch 3 - train iter 207 - 18304.5 words/s - loss: 0.3940
+00:52:41 - process[2]: training epoch 4 ...
+00:52:58 - process[2] - epoch 4 - train iter 207 - 18075.6 words/s - loss: 0.3911
+00:52:58 - process[2]: training epoch 5 ...
+00:53:15 - process[2] - epoch 5 - train iter 207 - 18780.3 words/s - loss: 0.3602
+00:53:15 - process[2]: training epoch 6 ...
+00:53:32 - process[2] - epoch 6 - train iter 207 - 19476.4 words/s - loss: 0.3680
+00:53:32 - process[2]: training epoch 7 ...
+00:53:49 - process[2] - epoch 7 - train iter 207 - 18617.7 words/s - loss: 0.3252
+00:53:49 - process[2]: training epoch 8 ...
+00:54:06 - process[2] - epoch 8 - train iter 207 - 17971.4 words/s - loss: 0.3672
+00:54:06 - process[2]: training epoch 9 ...
+00:54:24 - process[2] - epoch 9 - train iter 207 - 17662.6 words/s - loss: 0.3343
+00:54:24 - process[2]: training epoch 10 ...
+00:54:41 - process[2] - epoch 10 - train iter 207 - 17673.5 words/s - loss: 0.2874
+00:54:41 - process[2]: evaluating epoch 10 on dev ...
+00:55:36 - dev set during evaluation: 15480/15477
+00:55:36 - process[2] - dev - epoch 10 - mAP: 0.554 w/ 35 queries
+00:55:36 - process[2]: evaluating epoch 10 on test ...
+00:56:28 - test set during evaluation: 14470/14463
+00:56:28 - process[2] - test - epoch 10 - mAP: 0.490 w/ 35 queries
+00:56:28 - process[2]: training epoch 11 ...
+00:56:44 - process[2] - epoch 11 - train iter 207 - 19884.5 words/s - loss: 0.3022
+00:56:44 - process[2]: evaluating epoch 11 on dev ...
+00:57:37 - dev set during evaluation: 15480/15477
+00:57:37 - process[2] - dev - epoch 11 - mAP: 0.569 w/ 35 queries
+00:57:37 - process[2]: evaluating epoch 11 on test ...
+00:58:30 - test set during evaluation: 14470/14463
+00:58:30 - process[2] - test - epoch 11 - mAP: 0.497 w/ 35 queries
+00:58:30 - process[2]: training epoch 12 ...
+00:58:47 - process[2] - epoch 12 - train iter 207 - 17876.5 words/s - loss: 0.3546
+00:58:47 - process[2]: evaluating epoch 12 on dev ...
+00:59:39 - dev set during evaluation: 15480/15477
+00:59:39 - process[2] - dev - epoch 12 - mAP: 0.505 w/ 35 queries
+00:59:39 - process[2]: training epoch 13 ...
+00:59:56 - process[2] - epoch 13 - train iter 207 - 18549.3 words/s - loss: 0.3210
+00:59:56 - process[2]: evaluating epoch 13 on dev ...
+01:00:48 - dev set during evaluation: 15480/15477
+01:00:48 - process[2] - dev - epoch 13 - mAP: 0.520 w/ 35 queries
+01:00:48 - process[2]: training epoch 14 ...
+01:01:05 - process[2] - epoch 14 - train iter 207 - 18461.5 words/s - loss: 0.3019
+01:01:05 - process[2]: evaluating epoch 14 on dev ...
+01:01:57 - dev set during evaluation: 15480/15477
+01:01:57 - process[2] - dev - epoch 14 - mAP: 0.548 w/ 35 queries
+01:01:57 - process[2]: training epoch 15 ...
+01:02:13 - process[2] - epoch 15 - train iter 207 - 19765.7 words/s - loss: 0.2398
+01:02:13 - process[2]: evaluating epoch 15 on dev ...
+01:03:05 - dev set during evaluation: 15480/15477
+01:03:05 - process[2] - dev - epoch 15 - mAP: 0.537 w/ 35 queries
+01:03:05 - process[2]: training epoch 16 ...
+01:03:22 - process[2] - epoch 16 - train iter 207 - 17816.6 words/s - loss: 0.3216
+01:03:22 - process[2]: evaluating epoch 16 on dev ...
+01:04:14 - dev set during evaluation: 15480/15477
+01:04:14 - process[2] - dev - epoch 16 - mAP: 0.529 w/ 35 queries
+01:04:14 - process[2]: training epoch 17 ...
+01:04:31 - process[2] - epoch 17 - train iter 207 - 18972.7 words/s - loss: 0.3215
+01:04:31 - process[2]: evaluating epoch 17 on dev ...
+01:05:24 - dev set during evaluation: 15480/15477
+01:05:24 - process[2] - dev - epoch 17 - mAP: 0.543 w/ 35 queries
+01:05:24 - process[2]: training epoch 18 ...
+01:05:40 - process[2] - epoch 18 - train iter 207 - 18720.4 words/s - loss: 0.3193
+01:05:40 - process[2]: evaluating epoch 18 on dev ...
+01:06:33 - dev set during evaluation: 15480/15477
+01:06:33 - process[2] - dev - epoch 18 - mAP: 0.573 w/ 35 queries
+01:06:33 - process[2]: evaluating epoch 18 on test ...
+01:07:25 - test set during evaluation: 14470/14463
+01:07:25 - process[2] - test - epoch 18 - mAP: 0.487 w/ 35 queries
+01:07:25 - process[2]: training epoch 19 ...
+01:07:41 - process[2] - epoch 19 - train iter 207 - 19082.4 words/s - loss: 0.3059
+01:07:41 - process[2]: evaluating epoch 19 on dev ...
+01:08:34 - dev set during evaluation: 15480/15477
+01:08:34 - process[2] - dev - epoch 19 - mAP: 0.558 w/ 35 queries
+01:08:34 - [fold 4] best test MAP: 0.487 @ epoch 18
+01:08:34 - Evaluating every 1 epochs ...
+01:08:34 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+01:08:35 - test has 35 queries ...
+01:08:35 - Data reading done ...
+01:08:37 - adding 9-th encoder to optimizer...
+01:08:37 - adding 10-th encoder to optimizer...
+01:08:37 - adding 11-th encoder to optimizer...
+01:08:37 - process[2]: training epoch 0 ...
+01:08:53 - process[2] - epoch 0 - train iter 195 - 18583.7 words/s - loss: 0.5734
+01:08:53 - process[2]: training epoch 1 ...
+01:09:09 - process[2] - epoch 1 - train iter 195 - 18786.8 words/s - loss: 0.4376
+01:09:09 - process[2]: training epoch 2 ...
+01:09:26 - process[2] - epoch 2 - train iter 195 - 17323.1 words/s - loss: 0.3947
+01:09:26 - process[2]: training epoch 3 ...
+01:09:41 - process[2] - epoch 3 - train iter 195 - 18577.1 words/s - loss: 0.3881
+01:09:41 - process[2]: training epoch 4 ...
+01:09:56 - process[2] - epoch 4 - train iter 195 - 19397.4 words/s - loss: 0.3775
+01:09:56 - process[2]: training epoch 5 ...
+01:10:13 - process[2] - epoch 5 - train iter 195 - 18010.9 words/s - loss: 0.3597
+01:10:13 - process[2]: training epoch 6 ...
+01:10:29 - process[2] - epoch 6 - train iter 195 - 17141.0 words/s - loss: 0.3685
+01:10:29 - process[2]: training epoch 7 ...
+01:10:45 - process[2] - epoch 7 - train iter 195 - 18334.7 words/s - loss: 0.3354
+01:10:45 - process[2]: training epoch 8 ...
+01:11:01 - process[2] - epoch 8 - train iter 195 - 17799.8 words/s - loss: 0.3366
+01:11:01 - process[2]: training epoch 9 ...
+01:11:16 - process[2] - epoch 9 - train iter 195 - 18484.4 words/s - loss: 0.2939
+01:11:16 - process[2]: training epoch 10 ...
+01:11:33 - process[2] - epoch 10 - train iter 195 - 18506.1 words/s - loss: 0.3492
+01:11:33 - process[2]: evaluating epoch 10 on dev ...
+01:12:30 - dev set during evaluation: 14470/14463
+01:12:30 - process[2] - dev - epoch 10 - mAP: 0.489 w/ 35 queries
+01:12:30 - process[2]: evaluating epoch 10 on test ...
+01:13:25 - test set during evaluation: 14160/14157
+01:13:25 - process[2] - test - epoch 10 - mAP: 0.520 w/ 35 queries
+01:13:25 - process[2]: training epoch 11 ...
+01:13:41 - process[2] - epoch 11 - train iter 195 - 17661.4 words/s - loss: 0.2956
+01:13:41 - process[2]: evaluating epoch 11 on dev ...
+01:14:35 - dev set during evaluation: 14470/14463
+01:14:35 - process[2] - dev - epoch 11 - mAP: 0.496 w/ 35 queries
+01:14:35 - process[2]: evaluating epoch 11 on test ...
+01:15:30 - test set during evaluation: 14160/14157
+01:15:30 - process[2] - test - epoch 11 - mAP: 0.538 w/ 35 queries
+01:15:30 - process[2]: training epoch 12 ...
+01:15:45 - process[2] - epoch 12 - train iter 195 - 19255.7 words/s - loss: 0.3119
+01:15:45 - process[2]: evaluating epoch 12 on dev ...
+01:16:38 - dev set during evaluation: 14470/14463
+01:16:38 - process[2] - dev - epoch 12 - mAP: 0.492 w/ 35 queries
+01:16:38 - process[2]: training epoch 13 ...
+01:16:53 - process[2] - epoch 13 - train iter 195 - 19331.0 words/s - loss: 0.2933
+01:16:53 - process[2]: evaluating epoch 13 on dev ...
+01:17:47 - dev set during evaluation: 14470/14463
+01:17:47 - process[2] - dev - epoch 13 - mAP: 0.495 w/ 35 queries
+01:17:47 - process[2]: training epoch 14 ...
+01:18:03 - process[2] - epoch 14 - train iter 195 - 17865.0 words/s - loss: 0.2628
+01:18:03 - process[2]: evaluating epoch 14 on dev ...
+01:18:56 - dev set during evaluation: 14470/14463
+01:18:56 - process[2] - dev - epoch 14 - mAP: 0.488 w/ 35 queries
+01:18:56 - process[2]: training epoch 15 ...
+01:19:12 - process[2] - epoch 15 - train iter 195 - 18353.3 words/s - loss: 0.2934
+01:19:12 - process[2]: evaluating epoch 15 on dev ...
+01:20:04 - dev set during evaluation: 14470/14463
+01:20:04 - process[2] - dev - epoch 15 - mAP: 0.502 w/ 35 queries
+01:20:04 - process[2]: evaluating epoch 15 on test ...
+01:20:59 - test set during evaluation: 14160/14157
+01:20:59 - process[2] - test - epoch 15 - mAP: 0.520 w/ 35 queries
+01:20:59 - process[2]: training epoch 16 ...
+01:21:15 - process[2] - epoch 16 - train iter 195 - 17367.8 words/s - loss: 0.2881
+01:21:15 - process[2]: evaluating epoch 16 on dev ...
+01:22:08 - dev set during evaluation: 14470/14463
+01:22:08 - process[2] - dev - epoch 16 - mAP: 0.491 w/ 35 queries
+01:22:08 - process[2]: training epoch 17 ...
+01:22:24 - process[2] - epoch 17 - train iter 195 - 18040.5 words/s - loss: 0.3191
+01:22:24 - process[2]: evaluating epoch 17 on dev ...
+01:23:17 - dev set during evaluation: 14470/14463
+01:23:17 - process[2] - dev - epoch 17 - mAP: 0.493 w/ 35 queries
+01:23:17 - process[2]: training epoch 18 ...
+01:23:33 - process[2] - epoch 18 - train iter 195 - 16345.6 words/s - loss: 0.2383
+01:23:33 - process[2]: evaluating epoch 18 on dev ...
+01:24:24 - dev set during evaluation: 14470/14463
+01:24:24 - process[2] - dev - epoch 18 - mAP: 0.491 w/ 35 queries
+01:24:24 - process[2]: training epoch 19 ...
+01:24:40 - process[2] - epoch 19 - train iter 195 - 18300.5 words/s - loss: 0.2827
+01:24:40 - process[2]: evaluating epoch 19 on dev ...
+01:25:34 - dev set during evaluation: 14470/14463
+01:25:34 - process[2] - dev - epoch 19 - mAP: 0.483 w/ 35 queries
+01:25:34 - [fold 5] best test MAP: 0.520 @ epoch 15
+01:25:34 - [0.5091577323437245, 0.5078432671196699, 0.5164592795130067, 0.48697864420988557, 0.519731879097295]
+01:25:34 - [35, 36, 35, 35, 35]
+01:25:34 - final MAP: 0.508

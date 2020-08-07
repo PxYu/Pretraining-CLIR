@@ -1,0 +1,469 @@
+00:00:03 - Namespace(apex_level='O2', batch_size=8, cased=False, dataset='mix', debug=False, encoder_lr=2e-05, eval_step=1, full_doc_length=True, local_rank=0, model_path='/mnt/scratch/puxuan/long_qlm-rr/2148591/huggingface-0', model_type='mbert-long', num_epochs=10, num_ft_encoders=3, num_neg=1, projector_lr=2e-05, seed=611, source_lang='en', target_lang='es')
+00:00:17 - BertLongForXLRetrieval(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(105879, 768, padding_idx=0)
+      (position_embeddings): Embedding(1024, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (1): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (2): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (3): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (4): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (5): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (6): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (7): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (8): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (9): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (10): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (11): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+    (pooler): BertPooler(
+      (dense): Linear(in_features=768, out_features=768, bias=True)
+      (activation): Tanh()
+    )
+  )
+  (mlm_cls): BertOnlyMLMHead(
+    (predictions): BertLMPredictionHead(
+      (transform): BertPredictionHeadTransform(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      )
+      (decoder): Linear(in_features=768, out_features=105879, bias=True)
+    )
+  )
+  (seqcls_dropout): Dropout(p=0.1, inplace=False)
+  (seqcls_classifier): Linear(in_features=768, out_features=2, bias=True)
+)
+00:00:17 - Evaluating every 1 epochs ...
+00:00:19 - reading data from /mnt/home/puxuan/wiki-clir/uncased and /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:00:19 - f1 has 78 queries ...
+00:00:19 - f2 has 78 queries ...
+00:00:19 - Data reading done ...
+00:00:25 - adding 9-th encoder to optimizer...
+00:00:25 - adding 10-th encoder to optimizer...
+00:00:25 - adding 11-th encoder to optimizer...
+00:00:25 - process[0]: training epoch 0 ...
+00:02:16 - process[0] - epoch 0 - train iter 625 - 6038.8 words/s - loss: 0.3127
+00:02:16 - process[0]: training epoch 1 ...
+00:03:58 - process[0] - epoch 1 - train iter 625 - 6815.4 words/s - loss: 0.2139
+00:03:58 - process[0]: training epoch 2 ...
+00:06:07 - process[0] - epoch 2 - train iter 625 - 5273.5 words/s - loss: 0.2024
+00:06:07 - process[0]: training epoch 3 ...
+00:08:09 - process[0] - epoch 3 - train iter 625 - 5758.1 words/s - loss: 0.2100
+00:08:09 - process[0]: training epoch 4 ...
+00:09:58 - process[0] - epoch 4 - train iter 625 - 6121.9 words/s - loss: 0.1728
+00:09:58 - process[0]: training epoch 5 ...
+00:11:57 - process[0] - epoch 5 - train iter 625 - 5749.0 words/s - loss: 0.1892
+00:11:57 - process[0]: evaluating epoch 5 on f1 ...
+00:12:49 - process[0] - f1 - epoch 5 - mAP: 0.459 w/ 78 queries
+00:12:49 - removing file tmp/mbert-long_enes_f1_0_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_7_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_2_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_4_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_5_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_1_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_3_5.txt
+00:12:49 - removing file tmp/mbert-long_enes_f1_6_5.txt
+00:12:49 - process[0]: evaluating epoch 5 on f2 ...
+00:13:44 - f2 set during evaluation: 29536/29534
+00:13:44 - process[0] - f2 - epoch 5 - mAP: 0.556 w/ 78 queries
+00:13:44 - removing file tmp/mbert-long_enes_f2_1_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_2_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_4_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_5_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_0_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_3_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_7_5.txt
+00:13:44 - removing file tmp/mbert-long_enes_f2_6_5.txt
+00:13:44 - process[0]: training epoch 6 ...
+00:15:39 - process[0] - epoch 6 - train iter 625 - 5848.3 words/s - loss: 0.1485
+00:15:39 - process[0]: evaluating epoch 6 on f1 ...
+00:16:31 - process[0] - f1 - epoch 6 - mAP: 0.460 w/ 78 queries
+00:16:31 - removing file tmp/mbert-long_enes_f1_1_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_2_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_0_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_6_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_4_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_7_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_3_6.txt
+00:16:31 - removing file tmp/mbert-long_enes_f1_5_6.txt
+00:16:31 - process[0]: evaluating epoch 6 on f2 ...
+00:17:26 - f2 set during evaluation: 29536/29534
+00:17:26 - process[0] - f2 - epoch 6 - mAP: 0.559 w/ 78 queries
+00:17:26 - removing file tmp/mbert-long_enes_f2_6_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_3_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_2_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_1_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_4_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_0_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_5_6.txt
+00:17:26 - removing file tmp/mbert-long_enes_f2_7_6.txt
+00:17:26 - process[0]: training epoch 7 ...
+00:19:25 - process[0] - epoch 7 - train iter 625 - 5555.1 words/s - loss: 0.1774
+00:19:25 - process[0]: evaluating epoch 7 on f1 ...
+00:20:21 - process[0] - f1 - epoch 7 - mAP: 0.465 w/ 78 queries
+00:20:21 - removing file tmp/mbert-long_enes_f1_3_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_7_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_5_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_1_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_4_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_0_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_2_7.txt
+00:20:21 - removing file tmp/mbert-long_enes_f1_6_7.txt
+00:20:21 - process[0]: evaluating epoch 7 on f2 ...
+00:21:16 - f2 set during evaluation: 29536/29534
+00:21:16 - process[0] - f2 - epoch 7 - mAP: 0.551 w/ 78 queries
+00:21:16 - removing file tmp/mbert-long_enes_f2_4_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_1_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_0_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_7_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_6_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_3_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_5_7.txt
+00:21:16 - removing file tmp/mbert-long_enes_f2_2_7.txt
+00:21:16 - process[0]: training epoch 8 ...
+00:23:00 - process[0] - epoch 8 - train iter 625 - 6355.2 words/s - loss: 0.1482
+00:23:00 - process[0]: evaluating epoch 8 on f1 ...
+00:24:06 - process[0] - f1 - epoch 8 - mAP: 0.462 w/ 78 queries
+00:24:06 - removing file tmp/mbert-long_enes_f1_3_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_5_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_7_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_4_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_1_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_0_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_6_8.txt
+00:24:06 - removing file tmp/mbert-long_enes_f1_2_8.txt
+00:24:06 - process[0]: evaluating epoch 8 on f2 ...
+00:25:01 - f2 set during evaluation: 29536/29534
+00:25:01 - process[0] - f2 - epoch 8 - mAP: 0.552 w/ 78 queries
+00:25:01 - removing file tmp/mbert-long_enes_f2_2_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_5_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_4_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_6_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_3_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_1_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_0_8.txt
+00:25:01 - removing file tmp/mbert-long_enes_f2_7_8.txt
+00:25:01 - process[0]: training epoch 9 ...
+00:26:46 - process[0] - epoch 9 - train iter 625 - 6586.8 words/s - loss: 0.1784
+00:26:46 - process[0]: evaluating epoch 9 on f1 ...
+00:27:49 - process[0] - f1 - epoch 9 - mAP: 0.472 w/ 78 queries
+00:27:49 - removing file tmp/mbert-long_enes_f1_4_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_6_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_5_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_0_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_7_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_3_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_1_9.txt
+00:27:49 - removing file tmp/mbert-long_enes_f1_2_9.txt
+00:27:49 - process[0]: evaluating epoch 9 on f2 ...
+00:28:45 - f2 set during evaluation: 29536/29534
+00:28:45 - process[0] - f2 - epoch 9 - mAP: 0.559 w/ 78 queries
+00:28:45 - removing file tmp/mbert-long_enes_f2_6_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_5_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_3_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_4_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_0_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_2_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_7_9.txt
+00:28:45 - removing file tmp/mbert-long_enes_f2_1_9.txt
+00:28:45 - [0.4588969244232565, 0.4595877464679358, 0.465252769509202, 0.4621701642241679, 0.47157135871681377]
+00:28:45 - [0.5559978916523737, 0.5586810792665531, 0.5508686340524366, 0.5521542384144964, 0.5588727835975595]
+00:28:45 - 0.47157135871681377
+00:28:45 - 0.5588727835975595
+00:28:45 - best MAP: 0.515

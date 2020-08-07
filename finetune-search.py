@@ -71,7 +71,7 @@ if model_type_in_path.startswith("-"):
     model_type_in_path = model_type_in_path[1:]
 
 cased_dir = "cased" if args.cased else "uncased"
-log_dir = f'finetune-logs/{args.dataset}/{cased_dir}/{args.model_type}-{args.source_lang}{args.target_lang}'
+log_dir = f'logs/finetune/{args.dataset}/{cased_dir}/{args.model_type}/{args.source_lang}{args.target_lang}'
 log_dir += f"/{model_type_in_path}"
 os.makedirs(log_dir, exist_ok=True)
 
@@ -84,24 +84,32 @@ logger.addHandler(handler)
 logger.info(args)
 
 if args.model_type == "mbert":
+    
     tokenizer = BertTokenizer.from_pretrained(args.model_path)
     model = BertForXLRetrieval.from_pretrained(args.model_path)
     max_len, out_dim = model.bert.embeddings.position_embeddings.weight.shape
     num_encoder = len(model.bert.encoder.layer)
+
 elif args.model_type == "mbert-long":
+    
     tokenizer = BertTokenizer.from_pretrained(args.model_path)
     model = BertLongForXLRetrieval.from_pretrained(args.model_path)
     max_len, out_dim = model.bert.embeddings.position_embeddings.weight.shape
     num_encoder = len(model.bert.encoder.layer)
     logger.info(model)
+
 elif args.model_type == "xlm100":
+
     if not args.cased:
         assert False
+    
     tokenizer = XLMTokenizer.from_pretrained('xlm-mlm-100-1280')
     model = XLMForSequenceClassification.from_pretrained('xlm-mlm-100-1280')
     max_len, out_dim = model.transformer.position_embeddings.weight.shape
     num_encoder = len(model.transformer.attentions)
+
 elif args.model_type == "xlmr":
+    
     if not args.cased:
         assert False
 
@@ -133,20 +141,19 @@ class CLIR:
         # read data
         if args.dataset != "mix":
 
-            if args.dataset == 'clef':
+            # if args.dataset == 'clef':
 
-                # CLEF data
-                data_dir = f"{home_dir}/CLIR-project/Evaluation_data/process-clef/{self.cased_dir}"
+            #     # CLEF data
+            #     data_dir = f"{home_dir}/CLIR-project/Evaluation_data/process-clef/{self.cased_dir}"
 
-                logger.info(f"reading data from {data_dir}")
+            #     logger.info(f"reading data from {data_dir}")
 
-                rel = pickle.load(open(f"{data_dir}/relevance/{args.target_lang}_rel.pkl", 'rb'))
-                split = pickle.load(open(f"{data_dir}/relevance/{args.target_lang}_split.pkl", 'rb'))
-                queries = pickle.load(open(f"{data_dir}/queries/{args.source_lang}_query.pkl", 'rb'))
-                documents = pickle.load(open(f"{data_dir}/full_documents/{args.target_lang}_document.pkl", 'rb')) if args.full_doc_length \
-                            else pickle.load(open(f"{data_dir}/documents/{args.target_lang}_document.pkl", 'rb'))
+            #     rel = pickle.load(open(f"{data_dir}/relevance/{args.target_lang}_rel.pkl", 'rb'))
+            #     split = pickle.load(open(f"{data_dir}/relevance/{args.target_lang}_split.pkl", 'rb'))
+            #     queries = pickle.load(open(f"{data_dir}/queries/{args.source_lang}_query.pkl", 'rb'))
+            #     documents = pickle.load(open(f"{data_dir}/full_documents/{args.target_lang}_document.pkl", 'rb'))
 
-            elif args.dataset == "wiki-clir":
+            if args.dataset == "wiki-clir":
 
                 # wiki-CLIR data
                 data_dir = f"{home_dir}/wiki-clir/{self.cased_dir}"
@@ -196,8 +203,7 @@ class CLIR:
             rel = pickle.load(open(f"{clef_data_dir}/relevance/{args.target_lang}_rel.pkl", 'rb'))
             split = pickle.load(open(f"{clef_data_dir}/relevance/{args.target_lang}_split_2f.pkl", 'rb')) # different split file here
             queries = pickle.load(open(f"{clef_data_dir}/queries/{args.source_lang}_query.pkl", 'rb'))
-            documents = pickle.load(open(f"{clef_data_dir}/full_documents/{args.target_lang}_document.pkl", 'rb')) if args.full_doc_length \
-                        else pickle.load(open(f"{clef_data_dir}/documents/{args.target_lang}_document.pkl", 'rb'))
+            documents = pickle.load(open(f"{clef_data_dir}/full_documents/{args.target_lang}_document.pkl", 'rb'))
 
             logger.info(f"reading data from {wiki_data_dir} and {clef_data_dir}")
 
@@ -315,14 +321,15 @@ class CLIR:
 
         if args.dataset != "mix":
 
-            for epoch in range(args.num_epochs+1):
+            for epoch in range(args.num_epochs):
 
                 self.epoch = epoch
                 
                 logger.info("process[{}]: training epoch {} ...".format(self._rank, self.epoch))
+                
                 self.train()
 
-                if (self.epoch + 1) % self.eval_interval == 0:
+                if self.epoch % self.eval_interval == 0 and args.num_epochs - self.epoch <= 5:
                     # skip half of evaluation for speed
                     # dev eval first: if it is the best ever, we do test
                     logger.info("process[{}]: evaluating epoch {} on dev ...".format(self._rank, self.epoch))
@@ -336,8 +343,7 @@ class CLIR:
                         else:
                             pass
             
-            if self._rank == 0:
-                logger.info("best test MAP: {:.3f} @ epoch {}".format(self.best_test_map, self.best_epoch))
+            logger.info("best test MAP: {:.3f} @ epoch {}".format(self.best_test_map, self.best_epoch))
 
         else:
             self.f1_maps, self.f2_maps = [], []
@@ -346,9 +352,9 @@ class CLIR:
                 self.epoch = epoch
                 
                 logger.info("process[{}]: training epoch {} ...".format(self._rank, self.epoch))
-                # self.train()
+                self.train()
 
-                if self.epoch % self.eval_interval == 0 and args.num_epochs - self.epoch <= 3:
+                if self.epoch % self.eval_interval == 0 and args.num_epochs - self.epoch <= 5:
                     
                     logger.info("process[{}]: evaluating epoch {} on f1 ...".format(self._rank, self.epoch))
                     with torch.no_grad():
@@ -366,6 +372,10 @@ class CLIR:
                 dev_len, test_len = len(self.dev_loader.dataset.query_ids), len(self.test_loader.dataset.query_ids)
                 best_f1_map = self.f1_maps[np.argmax(self.f2_maps)]
                 best_f2_map = self.f2_maps[np.argmax(self.f1_maps)]
+                logger.info(self.f1_maps)
+                logger.info(self.f2_maps)
+                logger.info(best_f1_map)
+                logger.info(best_f2_map)
                 best_map = (best_f1_map * dev_len + best_f2_map * test_len) / (dev_len + test_len)
                 logger.info(f"best MAP: {best_map:.3f}")
                     
@@ -382,7 +392,7 @@ class CLIR:
         
         for qids, dids, queries, documents, y in self.train_loader:
 
-            n_pos_qd_pair += len(queries) / (1+args.num_neg)
+            n_pos_qd_pair += int(len(queries) / (1+args.num_neg))
             
             encoded = tokenizer.batch_encode_plus(batch_text_or_text_pairs=list(zip(queries, documents)),
                                                     truncation="longest_first", add_special_tokens=True, 

@@ -12,5 +12,5 @@ python -m torch.distributed.launch --nproc_per_node=10 finetune-search.py --mode
                                                                         --apex_level O2 \
                                                                         --encoder_lr 2e-5 \
                                                                         --projector_lr 2e-5 \
-                                                                        --num_ft_encoders 4 \
+                                                                        --num_ft_encoders 3 \
                                                                         --seed 611
