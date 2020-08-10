@@ -1,4 +1,4 @@
-model_type="mbert-long"
+model_type="mbert"
 dataset="clef"
 batch_size=8
 

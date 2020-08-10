@@ -40,7 +40,24 @@ pretrained_dirs=(
         # "/mnt/scratch/puxuan/short_qlm-rr/2186738/huggingface-4"
         # "/mnt/scratch/puxuan/short_qlm-rr/2186738/huggingface-9"
         # "/mnt/scratch/puxuan/long_qlm-rr/2186740/huggingface-2"
-        "/mnt/scratch/puxuan/long_qlm-rr/2186742/huggingface-3"
+        # "/mnt/scratch/puxuan/long_qlm-rr/2186742/huggingface-3"
+        # "/mnt/scratch/puxuan/short_qlm_0.15/2186792/huggingface-4"
+        # "/mnt/scratch/puxuan/short_qlm_0.15/2186792/huggingface-9"
+        # "/mnt/scratch/puxuan/short_qlm_0.15/2186792/huggingface-14"
+        "/mnt/scratch/puxuan/short_qlm_0.15/2186792/huggingface-19"
+        "/mnt/scratch/puxuan/short_qlm_0.45/2186793/huggingface-4"
+        # "/mnt/scratch/puxuan/short_qlm_0.45/2186793/huggingface-9"
+        # "/mnt/scratch/puxuan/short_qlm_0.45/2186793/huggingface-14"
+        "/mnt/scratch/puxuan/short_qlm_0.45/2186793/huggingface-19"
+        # "/mnt/scratch/puxuan/short_qlm_doc/2186796/huggingface-4"
+        # "/mnt/scratch/puxuan/short_qlm_doc/2186796/huggingface-9"
+        # "/mnt/scratch/puxuan/short_qlm_doc/2186796/huggingface-14"
+        # "/mnt/scratch/puxuan/short_qlm_doc/2186796/huggingface-19"
+        "/mnt/scratch/puxuan/short_qlm_mix/2192279/huggingface-4"
+        "/mnt/scratch/puxuan/short_qlm_mix/2192279/huggingface-9"
+        "/mnt/scratch/puxuan/short_qlm_mix/2192279/huggingface-14"
+        "/mnt/scratch/puxuan/short_qlm_mix/2192279/huggingface-19"
+
 	)
 
 for modelpath in ${pretrained_dirs[@]}

@@ -32,5 +32,5 @@ export TOKENIZERS_PARALLELISM=false
 # srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-19 --batch_size 32 --num_epochs 10
 
 # srun python finetune-qa.py --model_type mbert-long --model_name /mnt/scratch/puxuan/long_qlm-rr/2186740/huggingface-2 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert-long --model_name /mnt/scratch/puxuan/long_qlm-rr/2186742/huggingface-3 --batch_size 32 --num_epochs 10
+srun python finetune-qa.py --model_type mbert-long --model_name /mnt/scratch/puxuan/long_qlm-rr/2186742/huggingface-3 --batch_size 32 --num_epochs 10
 

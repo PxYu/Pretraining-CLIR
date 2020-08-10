@@ -1,0 +1,1484 @@
+00:00:06 - Namespace(apex_level='O2', batch_size=8, cased=False, dataset='clef', debug=False, encoder_lr=2e-05, eval_step=1, full_doc_length=True, local_rank=0, model_path='/mnt/scratch/puxuan/long_qlm-rr/2186742/huggingface-3', model_type='mbert-long', num_epochs=20, num_ft_encoders=3, num_neg=1, projector_lr=2e-05, seed=611, source_lang='fr', target_lang='en')
+00:00:17 - BertLongForXLRetrieval(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(105879, 768, padding_idx=0)
+      (position_embeddings): Embedding(1024, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (1): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (2): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (3): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (4): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (5): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (6): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (7): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (8): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (9): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (10): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (11): BertLayer(
+          (attention): BertAttention(
+            (self): LongformerSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (query_global): Linear(in_features=768, out_features=768, bias=True)
+              (key_global): Linear(in_features=768, out_features=768, bias=True)
+              (value_global): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+    (pooler): BertPooler(
+      (dense): Linear(in_features=768, out_features=768, bias=True)
+      (activation): Tanh()
+    )
+  )
+  (mlm_cls): BertOnlyMLMHead(
+    (predictions): BertLMPredictionHead(
+      (transform): BertPredictionHeadTransform(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      )
+      (decoder): Linear(in_features=768, out_features=105879, bias=True)
+    )
+  )
+  (seqcls_dropout): Dropout(p=0.1, inplace=False)
+  (seqcls_classifier): Linear(in_features=768, out_features=2, bias=True)
+)
+00:00:17 - Evaluating every 1 epochs ...
+00:00:17 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:00:18 - test has 35 queries ...
+00:00:18 - Data reading done ...
+00:00:24 - adding 9-th encoder to optimizer...
+00:00:24 - adding 10-th encoder to optimizer...
+00:00:24 - adding 11-th encoder to optimizer...
+00:00:25 - process[0]: training epoch 0 ...
+00:00:42 - process[0] - epoch 0 - train iter 197 - 17460.1 words/s - loss: 0.5822
+00:00:42 - process[0]: training epoch 1 ...
+00:00:58 - process[0] - epoch 1 - train iter 197 - 18675.6 words/s - loss: 0.4917
+00:00:58 - process[0]: training epoch 2 ...
+00:01:15 - process[0] - epoch 2 - train iter 197 - 18055.1 words/s - loss: 0.4427
+00:01:15 - process[0]: training epoch 3 ...
+00:01:32 - process[0] - epoch 3 - train iter 197 - 16877.6 words/s - loss: 0.4606
+00:01:32 - process[0]: training epoch 4 ...
+00:01:49 - process[0] - epoch 4 - train iter 197 - 18810.7 words/s - loss: 0.4034
+00:01:49 - process[0]: training epoch 5 ...
+00:02:05 - process[0] - epoch 5 - train iter 197 - 17922.7 words/s - loss: 0.3777
+00:02:05 - process[0]: training epoch 6 ...
+00:02:22 - process[0] - epoch 6 - train iter 197 - 17972.6 words/s - loss: 0.3393
+00:02:22 - process[0]: training epoch 7 ...
+00:02:38 - process[0] - epoch 7 - train iter 197 - 18239.8 words/s - loss: 0.3536
+00:02:38 - process[0]: training epoch 8 ...
+00:02:55 - process[0] - epoch 8 - train iter 197 - 17753.7 words/s - loss: 0.4074
+00:02:55 - process[0]: training epoch 9 ...
+00:03:11 - process[0] - epoch 9 - train iter 197 - 19360.7 words/s - loss: 0.3521
+00:03:11 - process[0]: training epoch 10 ...
+00:03:27 - process[0] - epoch 10 - train iter 197 - 19193.8 words/s - loss: 0.3204
+00:03:27 - process[0]: evaluating epoch 10 on dev ...
+00:04:26 - dev set during evaluation: 14160/14157
+00:04:26 - process[0] - dev - epoch 10 - mAP: 0.522 w/ 35 queries
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_4_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_1_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_2_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_3_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_6_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_8_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_5_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_0_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_9_10.txt
+00:04:26 - removing file tmp_5f/mbert-long_fren_dev_7_10.txt
+00:04:26 - process[0]: evaluating epoch 10 on test ...
+00:05:17 - test set during evaluation: 14980/14975
+00:05:17 - process[0] - test - epoch 10 - mAP: 0.545 w/ 35 queries
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_7_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_6_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_8_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_2_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_5_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_0_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_1_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_3_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_9_10.txt
+00:05:17 - removing file tmp_5f/mbert-long_fren_test_4_10.txt
+00:05:17 - process[0]: training epoch 11 ...
+00:05:33 - process[0] - epoch 11 - train iter 197 - 18389.9 words/s - loss: 0.2934
+00:05:33 - process[0]: evaluating epoch 11 on dev ...
+00:06:29 - dev set during evaluation: 14160/14157
+00:06:29 - process[0] - dev - epoch 11 - mAP: 0.517 w/ 35 queries
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_6_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_4_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_9_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_8_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_1_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_0_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_2_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_5_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_7_11.txt
+00:06:29 - removing file tmp_5f/mbert-long_fren_dev_3_11.txt
+00:06:29 - process[0]: training epoch 12 ...
+00:06:45 - process[0] - epoch 12 - train iter 197 - 18968.1 words/s - loss: 0.2586
+00:06:45 - process[0]: evaluating epoch 12 on dev ...
+00:07:39 - dev set during evaluation: 14160/14157
+00:07:39 - process[0] - dev - epoch 12 - mAP: 0.507 w/ 35 queries
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_5_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_2_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_6_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_0_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_7_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_4_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_9_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_1_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_8_12.txt
+00:07:39 - removing file tmp_5f/mbert-long_fren_dev_3_12.txt
+00:07:39 - process[0]: training epoch 13 ...
+00:07:55 - process[0] - epoch 13 - train iter 197 - 18733.8 words/s - loss: 0.2762
+00:07:55 - process[0]: evaluating epoch 13 on dev ...
+00:08:50 - dev set during evaluation: 14160/14157
+00:08:50 - process[0] - dev - epoch 13 - mAP: 0.529 w/ 35 queries
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_8_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_3_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_4_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_7_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_1_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_2_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_9_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_6_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_0_13.txt
+00:08:50 - removing file tmp_5f/mbert-long_fren_dev_5_13.txt
+00:08:50 - process[0]: evaluating epoch 13 on test ...
+00:09:42 - test set during evaluation: 14980/14975
+00:09:42 - process[0] - test - epoch 13 - mAP: 0.558 w/ 35 queries
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_7_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_8_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_5_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_0_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_9_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_4_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_2_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_6_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_3_13.txt
+00:09:42 - removing file tmp_5f/mbert-long_fren_test_1_13.txt
+00:09:42 - process[0]: training epoch 14 ...
+00:10:00 - process[0] - epoch 14 - train iter 197 - 16750.4 words/s - loss: 0.3018
+00:10:00 - process[0]: evaluating epoch 14 on dev ...
+00:10:52 - dev set during evaluation: 14160/14157
+00:10:52 - process[0] - dev - epoch 14 - mAP: 0.558 w/ 35 queries
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_7_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_5_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_3_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_8_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_4_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_1_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_0_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_6_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_9_14.txt
+00:10:52 - removing file tmp_5f/mbert-long_fren_dev_2_14.txt
+00:10:52 - process[0]: evaluating epoch 14 on test ...
+00:11:44 - test set during evaluation: 14980/14975
+00:11:44 - process[0] - test - epoch 14 - mAP: 0.562 w/ 35 queries
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_7_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_4_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_8_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_5_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_0_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_9_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_3_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_1_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_2_14.txt
+00:11:44 - removing file tmp_5f/mbert-long_fren_test_6_14.txt
+00:11:44 - process[0]: training epoch 15 ...
+00:12:00 - process[0] - epoch 15 - train iter 197 - 18393.1 words/s - loss: 0.2736
+00:12:00 - process[0]: evaluating epoch 15 on dev ...
+00:12:55 - dev set during evaluation: 14160/14157
+00:12:55 - process[0] - dev - epoch 15 - mAP: 0.526 w/ 35 queries
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_7_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_9_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_1_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_5_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_4_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_0_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_8_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_3_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_2_15.txt
+00:12:55 - removing file tmp_5f/mbert-long_fren_dev_6_15.txt
+00:12:55 - process[0]: training epoch 16 ...
+00:13:11 - process[0] - epoch 16 - train iter 197 - 19145.8 words/s - loss: 0.3223
+00:13:11 - process[0]: evaluating epoch 16 on dev ...
+00:14:06 - dev set during evaluation: 14160/14157
+00:14:06 - process[0] - dev - epoch 16 - mAP: 0.531 w/ 35 queries
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_1_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_9_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_5_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_6_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_8_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_2_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_3_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_4_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_0_16.txt
+00:14:06 - removing file tmp_5f/mbert-long_fren_dev_7_16.txt
+00:14:06 - process[0]: training epoch 17 ...
+00:14:24 - process[0] - epoch 17 - train iter 197 - 16970.4 words/s - loss: 0.2758
+00:14:24 - process[0]: evaluating epoch 17 on dev ...
+00:15:17 - dev set during evaluation: 14160/14157
+00:15:17 - process[0] - dev - epoch 17 - mAP: 0.520 w/ 35 queries
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_4_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_2_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_1_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_0_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_5_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_9_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_6_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_7_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_8_17.txt
+00:15:17 - removing file tmp_5f/mbert-long_fren_dev_3_17.txt
+00:15:17 - process[0]: training epoch 18 ...
+00:15:34 - process[0] - epoch 18 - train iter 197 - 18580.6 words/s - loss: 0.2705
+00:15:34 - process[0]: evaluating epoch 18 on dev ...
+00:16:28 - dev set during evaluation: 14160/14157
+00:16:28 - process[0] - dev - epoch 18 - mAP: 0.527 w/ 35 queries
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_0_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_8_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_3_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_7_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_1_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_5_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_4_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_2_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_9_18.txt
+00:16:28 - removing file tmp_5f/mbert-long_fren_dev_6_18.txt
+00:16:28 - process[0]: training epoch 19 ...
+00:16:45 - process[0] - epoch 19 - train iter 197 - 18397.5 words/s - loss: 0.2727
+00:16:45 - process[0]: evaluating epoch 19 on dev ...
+00:17:40 - dev set during evaluation: 14160/14157
+00:17:40 - process[0] - dev - epoch 19 - mAP: 0.503 w/ 35 queries
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_7_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_1_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_2_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_8_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_5_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_6_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_3_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_9_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_0_19.txt
+00:17:40 - removing file tmp_5f/mbert-long_fren_dev_4_19.txt
+00:17:40 - [fold 1] best test MAP: 0.562 @ epoch 14
+00:17:40 - Evaluating every 1 epochs ...
+00:17:40 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:17:41 - test has 36 queries ...
+00:17:41 - Data reading done ...
+00:17:42 - adding 9-th encoder to optimizer...
+00:17:42 - adding 10-th encoder to optimizer...
+00:17:42 - adding 11-th encoder to optimizer...
+00:17:43 - process[0]: training epoch 0 ...
+00:17:57 - process[0] - epoch 0 - train iter 187 - 19996.7 words/s - loss: 0.5445
+00:17:57 - process[0]: training epoch 1 ...
+00:18:13 - process[0] - epoch 1 - train iter 187 - 17649.2 words/s - loss: 0.4595
+00:18:13 - process[0]: training epoch 2 ...
+00:18:28 - process[0] - epoch 2 - train iter 187 - 19136.0 words/s - loss: 0.4452
+00:18:28 - process[0]: training epoch 3 ...
+00:18:43 - process[0] - epoch 3 - train iter 187 - 20261.6 words/s - loss: 0.4335
+00:18:43 - process[0]: training epoch 4 ...
+00:18:58 - process[0] - epoch 4 - train iter 187 - 18550.8 words/s - loss: 0.4227
+00:18:58 - process[0]: training epoch 5 ...
+00:19:12 - process[0] - epoch 5 - train iter 187 - 20724.5 words/s - loss: 0.4407
+00:19:12 - process[0]: training epoch 6 ...
+00:19:27 - process[0] - epoch 6 - train iter 187 - 20000.2 words/s - loss: 0.3609
+00:19:27 - process[0]: training epoch 7 ...
+00:19:42 - process[0] - epoch 7 - train iter 187 - 19212.4 words/s - loss: 0.3754
+00:19:42 - process[0]: training epoch 8 ...
+00:19:57 - process[0] - epoch 8 - train iter 187 - 18150.9 words/s - loss: 0.3459
+00:19:57 - process[0]: training epoch 9 ...
+00:20:12 - process[0] - epoch 9 - train iter 187 - 19641.4 words/s - loss: 0.3197
+00:20:12 - process[0]: training epoch 10 ...
+00:20:27 - process[0] - epoch 10 - train iter 187 - 19560.6 words/s - loss: 0.3698
+00:20:27 - process[0]: evaluating epoch 10 on dev ...
+00:21:25 - dev set during evaluation: 14980/14975
+00:21:25 - process[0] - dev - epoch 10 - mAP: 0.538 w/ 35 queries
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_4_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_1_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_2_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_3_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_6_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_8_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_5_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_0_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_9_10.txt
+00:21:25 - removing file tmp_5f/mbert-long_fren_dev_7_10.txt
+00:21:25 - process[0]: evaluating epoch 10 on test ...
+00:22:19 - test set during evaluation: 15300/15294
+00:22:19 - process[0] - test - epoch 10 - mAP: 0.523 w/ 36 queries
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_7_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_6_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_8_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_2_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_5_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_0_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_1_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_3_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_9_10.txt
+00:22:19 - removing file tmp_5f/mbert-long_fren_test_4_10.txt
+00:22:19 - process[0]: training epoch 11 ...
+00:22:34 - process[0] - epoch 11 - train iter 187 - 18928.8 words/s - loss: 0.3197
+00:22:34 - process[0]: evaluating epoch 11 on dev ...
+00:23:25 - dev set during evaluation: 14980/14975
+00:23:25 - process[0] - dev - epoch 11 - mAP: 0.546 w/ 35 queries
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_6_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_4_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_9_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_8_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_1_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_0_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_2_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_5_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_7_11.txt
+00:23:25 - removing file tmp_5f/mbert-long_fren_dev_3_11.txt
+00:23:25 - process[0]: evaluating epoch 11 on test ...
+00:24:19 - test set during evaluation: 15300/15294
+00:24:19 - process[0] - test - epoch 11 - mAP: 0.525 w/ 36 queries
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_2_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_7_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_3_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_9_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_4_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_0_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_6_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_8_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_1_11.txt
+00:24:19 - removing file tmp_5f/mbert-long_fren_test_5_11.txt
+00:24:19 - process[0]: training epoch 12 ...
+00:24:34 - process[0] - epoch 12 - train iter 187 - 19265.1 words/s - loss: 0.2689
+00:24:34 - process[0]: evaluating epoch 12 on dev ...
+00:25:26 - dev set during evaluation: 14980/14975
+00:25:26 - process[0] - dev - epoch 12 - mAP: 0.558 w/ 35 queries
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_5_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_2_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_6_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_0_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_7_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_4_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_9_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_1_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_8_12.txt
+00:25:26 - removing file tmp_5f/mbert-long_fren_dev_3_12.txt
+00:25:26 - process[0]: evaluating epoch 12 on test ...
+00:26:19 - test set during evaluation: 15300/15294
+00:26:19 - process[0] - test - epoch 12 - mAP: 0.517 w/ 36 queries
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_9_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_1_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_7_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_3_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_8_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_0_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_2_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_6_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_5_12.txt
+00:26:19 - removing file tmp_5f/mbert-long_fren_test_4_12.txt
+00:26:19 - process[0]: training epoch 13 ...
+00:26:33 - process[0] - epoch 13 - train iter 187 - 19720.0 words/s - loss: 0.2814
+00:26:33 - process[0]: evaluating epoch 13 on dev ...
+00:27:26 - dev set during evaluation: 14980/14975
+00:27:26 - process[0] - dev - epoch 13 - mAP: 0.545 w/ 35 queries
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_8_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_3_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_4_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_7_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_1_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_2_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_9_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_6_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_0_13.txt
+00:27:26 - removing file tmp_5f/mbert-long_fren_dev_5_13.txt
+00:27:26 - process[0]: training epoch 14 ...
+00:27:40 - process[0] - epoch 14 - train iter 187 - 19443.8 words/s - loss: 0.2738
+00:27:40 - process[0]: evaluating epoch 14 on dev ...
+00:28:32 - dev set during evaluation: 14980/14975
+00:28:32 - process[0] - dev - epoch 14 - mAP: 0.579 w/ 35 queries
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_7_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_5_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_3_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_8_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_4_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_1_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_0_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_6_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_9_14.txt
+00:28:32 - removing file tmp_5f/mbert-long_fren_dev_2_14.txt
+00:28:32 - process[0]: evaluating epoch 14 on test ...
+00:29:26 - test set during evaluation: 15300/15294
+00:29:26 - process[0] - test - epoch 14 - mAP: 0.536 w/ 36 queries
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_7_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_4_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_8_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_5_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_0_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_9_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_3_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_1_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_2_14.txt
+00:29:26 - removing file tmp_5f/mbert-long_fren_test_6_14.txt
+00:29:26 - process[0]: training epoch 15 ...
+00:29:40 - process[0] - epoch 15 - train iter 187 - 19568.9 words/s - loss: 0.2886
+00:29:40 - process[0]: evaluating epoch 15 on dev ...
+00:30:32 - dev set during evaluation: 14980/14975
+00:30:32 - process[0] - dev - epoch 15 - mAP: 0.551 w/ 35 queries
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_7_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_9_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_1_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_5_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_4_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_0_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_8_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_3_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_2_15.txt
+00:30:32 - removing file tmp_5f/mbert-long_fren_dev_6_15.txt
+00:30:32 - process[0]: training epoch 16 ...
+00:30:47 - process[0] - epoch 16 - train iter 187 - 19233.9 words/s - loss: 0.2915
+00:30:47 - process[0]: evaluating epoch 16 on dev ...
+00:31:38 - dev set during evaluation: 14980/14975
+00:31:38 - process[0] - dev - epoch 16 - mAP: 0.535 w/ 35 queries
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_1_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_9_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_5_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_6_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_8_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_2_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_3_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_4_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_0_16.txt
+00:31:38 - removing file tmp_5f/mbert-long_fren_dev_7_16.txt
+00:31:38 - process[0]: training epoch 17 ...
+00:31:52 - process[0] - epoch 17 - train iter 187 - 19971.8 words/s - loss: 0.2341
+00:31:52 - process[0]: evaluating epoch 17 on dev ...
+00:32:44 - dev set during evaluation: 14980/14975
+00:32:44 - process[0] - dev - epoch 17 - mAP: 0.569 w/ 35 queries
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_4_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_2_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_1_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_0_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_5_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_9_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_6_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_7_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_8_17.txt
+00:32:44 - removing file tmp_5f/mbert-long_fren_dev_3_17.txt
+00:32:44 - process[0]: training epoch 18 ...
+00:32:59 - process[0] - epoch 18 - train iter 187 - 19188.7 words/s - loss: 0.2693
+00:32:59 - process[0]: evaluating epoch 18 on dev ...
+00:33:51 - dev set during evaluation: 14980/14975
+00:33:51 - process[0] - dev - epoch 18 - mAP: 0.583 w/ 35 queries
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_0_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_8_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_3_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_7_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_1_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_5_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_4_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_2_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_9_18.txt
+00:33:51 - removing file tmp_5f/mbert-long_fren_dev_6_18.txt
+00:33:51 - process[0]: evaluating epoch 18 on test ...
+00:34:44 - test set during evaluation: 15300/15294
+00:34:44 - process[0] - test - epoch 18 - mAP: 0.537 w/ 36 queries
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_4_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_7_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_2_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_3_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_1_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_8_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_9_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_5_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_6_18.txt
+00:34:44 - removing file tmp_5f/mbert-long_fren_test_0_18.txt
+00:34:44 - process[0]: training epoch 19 ...
+00:35:00 - process[0] - epoch 19 - train iter 187 - 17860.7 words/s - loss: 0.2619
+00:35:00 - process[0]: evaluating epoch 19 on dev ...
+00:35:52 - dev set during evaluation: 14980/14975
+00:35:52 - process[0] - dev - epoch 19 - mAP: 0.582 w/ 35 queries
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_7_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_1_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_2_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_8_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_5_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_6_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_3_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_9_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_0_19.txt
+00:35:52 - removing file tmp_5f/mbert-long_fren_dev_4_19.txt
+00:35:52 - [fold 2] best test MAP: 0.537 @ epoch 18
+00:35:52 - Evaluating every 1 epochs ...
+00:35:52 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:35:52 - test has 35 queries ...
+00:35:52 - Data reading done ...
+00:35:54 - adding 9-th encoder to optimizer...
+00:35:54 - adding 10-th encoder to optimizer...
+00:35:54 - adding 11-th encoder to optimizer...
+00:35:54 - process[0]: training epoch 0 ...
+00:36:10 - process[0] - epoch 0 - train iter 196 - 19186.1 words/s - loss: 0.5958
+00:36:10 - process[0]: training epoch 1 ...
+00:36:26 - process[0] - epoch 1 - train iter 196 - 19241.3 words/s - loss: 0.4472
+00:36:26 - process[0]: training epoch 2 ...
+00:36:42 - process[0] - epoch 2 - train iter 196 - 18563.5 words/s - loss: 0.4457
+00:36:42 - process[0]: training epoch 3 ...
+00:36:58 - process[0] - epoch 3 - train iter 196 - 18679.7 words/s - loss: 0.4267
+00:36:58 - process[0]: training epoch 4 ...
+00:37:13 - process[0] - epoch 4 - train iter 196 - 19674.2 words/s - loss: 0.4251
+00:37:13 - process[0]: training epoch 5 ...
+00:37:28 - process[0] - epoch 5 - train iter 196 - 19643.6 words/s - loss: 0.3480
+00:37:28 - process[0]: training epoch 6 ...
+00:37:44 - process[0] - epoch 6 - train iter 196 - 18618.5 words/s - loss: 0.3150
+00:37:44 - process[0]: training epoch 7 ...
+00:38:01 - process[0] - epoch 7 - train iter 196 - 18245.3 words/s - loss: 0.3665
+00:38:01 - process[0]: training epoch 8 ...
+00:38:16 - process[0] - epoch 8 - train iter 196 - 19601.3 words/s - loss: 0.3278
+00:38:16 - process[0]: training epoch 9 ...
+00:38:32 - process[0] - epoch 9 - train iter 196 - 18262.7 words/s - loss: 0.3274
+00:38:32 - process[0]: training epoch 10 ...
+00:38:47 - process[0] - epoch 10 - train iter 196 - 19577.6 words/s - loss: 0.3577
+00:38:47 - process[0]: evaluating epoch 10 on dev ...
+00:39:45 - dev set during evaluation: 15300/15294
+00:39:45 - process[0] - dev - epoch 10 - mAP: 0.507 w/ 36 queries
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_4_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_1_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_2_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_3_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_6_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_8_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_5_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_0_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_9_10.txt
+00:39:45 - removing file tmp_5f/mbert-long_fren_dev_7_10.txt
+00:39:45 - process[0]: evaluating epoch 10 on test ...
+00:40:38 - test set during evaluation: 15480/15477
+00:40:38 - process[0] - test - epoch 10 - mAP: 0.512 w/ 35 queries
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_7_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_6_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_8_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_2_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_5_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_0_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_1_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_3_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_9_10.txt
+00:40:38 - removing file tmp_5f/mbert-long_fren_test_4_10.txt
+00:40:38 - process[0]: training epoch 11 ...
+00:40:54 - process[0] - epoch 11 - train iter 196 - 18077.5 words/s - loss: 0.3257
+00:40:54 - process[0]: evaluating epoch 11 on dev ...
+00:41:47 - dev set during evaluation: 15300/15294
+00:41:47 - process[0] - dev - epoch 11 - mAP: 0.522 w/ 36 queries
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_6_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_4_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_9_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_8_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_1_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_0_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_2_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_5_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_7_11.txt
+00:41:47 - removing file tmp_5f/mbert-long_fren_dev_3_11.txt
+00:41:47 - process[0]: evaluating epoch 11 on test ...
+00:42:40 - test set during evaluation: 15480/15477
+00:42:40 - process[0] - test - epoch 11 - mAP: 0.520 w/ 35 queries
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_2_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_7_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_3_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_9_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_4_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_0_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_6_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_8_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_1_11.txt
+00:42:40 - removing file tmp_5f/mbert-long_fren_test_5_11.txt
+00:42:40 - process[0]: training epoch 12 ...
+00:42:56 - process[0] - epoch 12 - train iter 196 - 18397.8 words/s - loss: 0.2992
+00:42:56 - process[0]: evaluating epoch 12 on dev ...
+00:43:49 - dev set during evaluation: 15300/15294
+00:43:49 - process[0] - dev - epoch 12 - mAP: 0.524 w/ 36 queries
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_5_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_2_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_6_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_0_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_7_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_4_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_9_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_1_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_8_12.txt
+00:43:49 - removing file tmp_5f/mbert-long_fren_dev_3_12.txt
+00:43:49 - process[0]: evaluating epoch 12 on test ...
+00:44:42 - test set during evaluation: 15480/15477
+00:44:42 - process[0] - test - epoch 12 - mAP: 0.524 w/ 35 queries
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_9_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_1_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_7_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_3_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_8_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_0_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_2_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_6_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_5_12.txt
+00:44:42 - removing file tmp_5f/mbert-long_fren_test_4_12.txt
+00:44:42 - process[0]: training epoch 13 ...
+00:44:57 - process[0] - epoch 13 - train iter 196 - 19263.6 words/s - loss: 0.3373
+00:44:57 - process[0]: evaluating epoch 13 on dev ...
+00:45:51 - dev set during evaluation: 15300/15294
+00:45:51 - process[0] - dev - epoch 13 - mAP: 0.538 w/ 36 queries
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_8_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_3_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_4_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_7_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_1_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_2_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_9_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_6_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_0_13.txt
+00:45:51 - removing file tmp_5f/mbert-long_fren_dev_5_13.txt
+00:45:51 - process[0]: evaluating epoch 13 on test ...
+00:46:43 - test set during evaluation: 15480/15477
+00:46:43 - process[0] - test - epoch 13 - mAP: 0.539 w/ 35 queries
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_7_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_8_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_5_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_0_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_9_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_4_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_2_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_6_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_3_13.txt
+00:46:43 - removing file tmp_5f/mbert-long_fren_test_1_13.txt
+00:46:43 - process[0]: training epoch 14 ...
+00:47:00 - process[0] - epoch 14 - train iter 196 - 17694.1 words/s - loss: 0.3147
+00:47:00 - process[0]: evaluating epoch 14 on dev ...
+00:47:53 - dev set during evaluation: 15300/15294
+00:47:53 - process[0] - dev - epoch 14 - mAP: 0.548 w/ 36 queries
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_7_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_5_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_3_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_8_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_4_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_1_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_0_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_6_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_9_14.txt
+00:47:53 - removing file tmp_5f/mbert-long_fren_dev_2_14.txt
+00:47:53 - process[0]: evaluating epoch 14 on test ...
+00:48:45 - test set during evaluation: 15480/15477
+00:48:45 - process[0] - test - epoch 14 - mAP: 0.498 w/ 35 queries
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_7_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_4_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_8_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_5_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_0_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_9_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_3_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_1_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_2_14.txt
+00:48:45 - removing file tmp_5f/mbert-long_fren_test_6_14.txt
+00:48:45 - process[0]: training epoch 15 ...
+00:49:02 - process[0] - epoch 15 - train iter 196 - 18056.9 words/s - loss: 0.2701
+00:49:02 - process[0]: evaluating epoch 15 on dev ...
+00:49:54 - dev set during evaluation: 15300/15294
+00:49:54 - process[0] - dev - epoch 15 - mAP: 0.537 w/ 36 queries
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_7_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_9_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_1_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_5_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_4_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_0_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_8_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_3_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_2_15.txt
+00:49:54 - removing file tmp_5f/mbert-long_fren_dev_6_15.txt
+00:49:54 - process[0]: training epoch 16 ...
+00:50:10 - process[0] - epoch 16 - train iter 196 - 18204.4 words/s - loss: 0.2981
+00:50:10 - process[0]: evaluating epoch 16 on dev ...
+00:51:02 - dev set during evaluation: 15300/15294
+00:51:02 - process[0] - dev - epoch 16 - mAP: 0.552 w/ 36 queries
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_1_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_9_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_5_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_6_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_8_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_2_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_3_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_4_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_0_16.txt
+00:51:02 - removing file tmp_5f/mbert-long_fren_dev_7_16.txt
+00:51:02 - process[0]: evaluating epoch 16 on test ...
+00:51:55 - test set during evaluation: 15480/15477
+00:51:55 - process[0] - test - epoch 16 - mAP: 0.512 w/ 35 queries
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_5_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_8_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_7_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_1_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_0_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_9_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_2_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_6_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_3_16.txt
+00:51:55 - removing file tmp_5f/mbert-long_fren_test_4_16.txt
+00:51:55 - process[0]: training epoch 17 ...
+00:52:10 - process[0] - epoch 17 - train iter 196 - 19026.4 words/s - loss: 0.3286
+00:52:10 - process[0]: evaluating epoch 17 on dev ...
+00:53:03 - dev set during evaluation: 15300/15294
+00:53:03 - process[0] - dev - epoch 17 - mAP: 0.529 w/ 36 queries
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_4_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_2_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_1_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_0_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_5_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_9_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_6_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_7_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_8_17.txt
+00:53:03 - removing file tmp_5f/mbert-long_fren_dev_3_17.txt
+00:53:03 - process[0]: training epoch 18 ...
+00:53:19 - process[0] - epoch 18 - train iter 196 - 18767.3 words/s - loss: 0.2679
+00:53:19 - process[0]: evaluating epoch 18 on dev ...
+00:54:12 - dev set during evaluation: 15300/15294
+00:54:12 - process[0] - dev - epoch 18 - mAP: 0.535 w/ 36 queries
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_0_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_8_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_3_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_7_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_1_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_5_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_4_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_2_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_9_18.txt
+00:54:12 - removing file tmp_5f/mbert-long_fren_dev_6_18.txt
+00:54:12 - process[0]: training epoch 19 ...
+00:54:29 - process[0] - epoch 19 - train iter 196 - 18350.3 words/s - loss: 0.2502
+00:54:29 - process[0]: evaluating epoch 19 on dev ...
+00:55:22 - dev set during evaluation: 15300/15294
+00:55:22 - process[0] - dev - epoch 19 - mAP: 0.548 w/ 36 queries
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_7_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_1_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_2_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_8_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_5_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_6_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_3_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_9_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_0_19.txt
+00:55:22 - removing file tmp_5f/mbert-long_fren_dev_4_19.txt
+00:55:22 - [fold 3] best test MAP: 0.512 @ epoch 16
+00:55:22 - Evaluating every 1 epochs ...
+00:55:22 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+00:55:23 - test has 35 queries ...
+00:55:23 - Data reading done ...
+00:55:24 - adding 9-th encoder to optimizer...
+00:55:24 - adding 10-th encoder to optimizer...
+00:55:24 - adding 11-th encoder to optimizer...
+00:55:25 - process[0]: training epoch 0 ...
+00:55:43 - process[0] - epoch 0 - train iter 207 - 18505.8 words/s - loss: 0.5259
+00:55:43 - process[0]: training epoch 1 ...
+00:55:59 - process[0] - epoch 1 - train iter 207 - 18757.4 words/s - loss: 0.4172
+00:55:59 - process[0]: training epoch 2 ...
+00:56:16 - process[0] - epoch 2 - train iter 207 - 19323.5 words/s - loss: 0.4402
+00:56:16 - process[0]: training epoch 3 ...
+00:56:33 - process[0] - epoch 3 - train iter 207 - 17874.7 words/s - loss: 0.3307
+00:56:33 - process[0]: training epoch 4 ...
+00:56:51 - process[0] - epoch 4 - train iter 207 - 18323.8 words/s - loss: 0.3616
+00:56:51 - process[0]: training epoch 5 ...
+00:57:08 - process[0] - epoch 5 - train iter 207 - 17975.8 words/s - loss: 0.3763
+00:57:08 - process[0]: training epoch 6 ...
+00:57:26 - process[0] - epoch 6 - train iter 207 - 18094.0 words/s - loss: 0.3784
+00:57:26 - process[0]: training epoch 7 ...
+00:57:43 - process[0] - epoch 7 - train iter 207 - 17980.8 words/s - loss: 0.3696
+00:57:43 - process[0]: training epoch 8 ...
+00:58:00 - process[0] - epoch 8 - train iter 207 - 18230.1 words/s - loss: 0.3139
+00:58:00 - process[0]: training epoch 9 ...
+00:58:18 - process[0] - epoch 9 - train iter 207 - 18120.0 words/s - loss: 0.3240
+00:58:18 - process[0]: training epoch 10 ...
+00:58:36 - process[0] - epoch 10 - train iter 207 - 17514.2 words/s - loss: 0.3237
+00:58:36 - process[0]: evaluating epoch 10 on dev ...
+00:59:29 - dev set during evaluation: 15480/15477
+00:59:29 - process[0] - dev - epoch 10 - mAP: 0.550 w/ 35 queries
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_4_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_1_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_2_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_3_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_6_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_8_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_5_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_0_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_9_10.txt
+00:59:29 - removing file tmp_5f/mbert-long_fren_dev_7_10.txt
+00:59:29 - process[0]: evaluating epoch 10 on test ...
+01:00:21 - test set during evaluation: 14470/14463
+01:00:21 - process[0] - test - epoch 10 - mAP: 0.490 w/ 35 queries
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_7_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_6_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_8_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_2_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_5_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_0_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_1_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_3_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_9_10.txt
+01:00:21 - removing file tmp_5f/mbert-long_fren_test_4_10.txt
+01:00:21 - process[0]: training epoch 11 ...
+01:00:39 - process[0] - epoch 11 - train iter 207 - 18326.3 words/s - loss: 0.2871
+01:00:39 - process[0]: evaluating epoch 11 on dev ...
+01:01:30 - dev set during evaluation: 15480/15477
+01:01:30 - process[0] - dev - epoch 11 - mAP: 0.565 w/ 35 queries
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_6_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_4_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_9_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_8_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_1_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_0_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_2_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_5_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_7_11.txt
+01:01:30 - removing file tmp_5f/mbert-long_fren_dev_3_11.txt
+01:01:30 - process[0]: evaluating epoch 11 on test ...
+01:02:22 - test set during evaluation: 14470/14463
+01:02:22 - process[0] - test - epoch 11 - mAP: 0.497 w/ 35 queries
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_2_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_7_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_3_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_9_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_4_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_0_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_6_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_8_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_1_11.txt
+01:02:22 - removing file tmp_5f/mbert-long_fren_test_5_11.txt
+01:02:22 - process[0]: training epoch 12 ...
+01:02:40 - process[0] - epoch 12 - train iter 207 - 18696.0 words/s - loss: 0.3145
+01:02:40 - process[0]: evaluating epoch 12 on dev ...
+01:03:32 - dev set during evaluation: 15480/15477
+01:03:32 - process[0] - dev - epoch 12 - mAP: 0.527 w/ 35 queries
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_5_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_2_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_6_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_0_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_7_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_4_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_9_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_1_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_8_12.txt
+01:03:32 - removing file tmp_5f/mbert-long_fren_dev_3_12.txt
+01:03:32 - process[0]: training epoch 13 ...
+01:03:50 - process[0] - epoch 13 - train iter 207 - 17209.1 words/s - loss: 0.3120
+01:03:50 - process[0]: evaluating epoch 13 on dev ...
+01:04:42 - dev set during evaluation: 15480/15477
+01:04:42 - process[0] - dev - epoch 13 - mAP: 0.536 w/ 35 queries
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_8_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_3_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_4_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_7_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_1_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_2_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_9_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_6_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_0_13.txt
+01:04:42 - removing file tmp_5f/mbert-long_fren_dev_5_13.txt
+01:04:42 - process[0]: training epoch 14 ...
+01:04:59 - process[0] - epoch 14 - train iter 207 - 18044.7 words/s - loss: 0.2835
+01:04:59 - process[0]: evaluating epoch 14 on dev ...
+01:05:52 - dev set during evaluation: 15480/15477
+01:05:52 - process[0] - dev - epoch 14 - mAP: 0.564 w/ 35 queries
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_7_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_5_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_3_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_8_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_4_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_1_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_0_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_6_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_9_14.txt
+01:05:52 - removing file tmp_5f/mbert-long_fren_dev_2_14.txt
+01:05:52 - process[0]: training epoch 15 ...
+01:06:09 - process[0] - epoch 15 - train iter 207 - 18672.3 words/s - loss: 0.2723
+01:06:09 - process[0]: evaluating epoch 15 on dev ...
+01:07:01 - dev set during evaluation: 15480/15477
+01:07:01 - process[0] - dev - epoch 15 - mAP: 0.558 w/ 35 queries
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_7_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_9_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_1_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_5_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_4_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_0_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_8_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_3_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_2_15.txt
+01:07:01 - removing file tmp_5f/mbert-long_fren_dev_6_15.txt
+01:07:01 - process[0]: training epoch 16 ...
+01:07:17 - process[0] - epoch 16 - train iter 207 - 19273.1 words/s - loss: 0.2528
+01:07:17 - process[0]: evaluating epoch 16 on dev ...
+01:08:11 - dev set during evaluation: 15480/15477
+01:08:11 - process[0] - dev - epoch 16 - mAP: 0.568 w/ 35 queries
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_1_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_9_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_5_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_6_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_8_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_2_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_3_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_4_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_0_16.txt
+01:08:11 - removing file tmp_5f/mbert-long_fren_dev_7_16.txt
+01:08:11 - process[0]: evaluating epoch 16 on test ...
+01:09:04 - test set during evaluation: 14470/14463
+01:09:04 - process[0] - test - epoch 16 - mAP: 0.497 w/ 35 queries
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_5_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_8_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_7_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_1_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_0_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_9_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_2_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_6_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_3_16.txt
+01:09:04 - removing file tmp_5f/mbert-long_fren_test_4_16.txt
+01:09:04 - process[0]: training epoch 17 ...
+01:09:21 - process[0] - epoch 17 - train iter 207 - 17795.4 words/s - loss: 0.2524
+01:09:21 - process[0]: evaluating epoch 17 on dev ...
+01:10:15 - dev set during evaluation: 15480/15477
+01:10:15 - process[0] - dev - epoch 17 - mAP: 0.560 w/ 35 queries
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_4_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_2_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_1_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_0_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_5_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_9_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_6_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_7_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_8_17.txt
+01:10:15 - removing file tmp_5f/mbert-long_fren_dev_3_17.txt
+01:10:15 - process[0]: training epoch 18 ...
+01:10:32 - process[0] - epoch 18 - train iter 207 - 18555.0 words/s - loss: 0.2352
+01:10:32 - process[0]: evaluating epoch 18 on dev ...
+01:11:24 - dev set during evaluation: 15480/15477
+01:11:24 - process[0] - dev - epoch 18 - mAP: 0.573 w/ 35 queries
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_0_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_8_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_3_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_7_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_1_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_5_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_4_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_2_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_9_18.txt
+01:11:24 - removing file tmp_5f/mbert-long_fren_dev_6_18.txt
+01:11:24 - process[0]: evaluating epoch 18 on test ...
+01:12:17 - test set during evaluation: 14470/14463
+01:12:17 - process[0] - test - epoch 18 - mAP: 0.512 w/ 35 queries
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_4_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_7_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_2_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_3_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_1_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_8_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_9_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_5_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_6_18.txt
+01:12:17 - removing file tmp_5f/mbert-long_fren_test_0_18.txt
+01:12:17 - process[0]: training epoch 19 ...
+01:12:33 - process[0] - epoch 19 - train iter 207 - 18881.5 words/s - loss: 0.3192
+01:12:33 - process[0]: evaluating epoch 19 on dev ...
+01:13:27 - dev set during evaluation: 15480/15477
+01:13:27 - process[0] - dev - epoch 19 - mAP: 0.553 w/ 35 queries
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_7_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_1_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_2_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_8_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_5_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_6_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_3_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_9_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_0_19.txt
+01:13:27 - removing file tmp_5f/mbert-long_fren_dev_4_19.txt
+01:13:27 - [fold 4] best test MAP: 0.512 @ epoch 18
+01:13:27 - Evaluating every 1 epochs ...
+01:13:27 - reading data from /mnt/home/puxuan/CLIR-project/Evaluation_data/process-clef/uncased
+01:13:28 - test has 35 queries ...
+01:13:28 - Data reading done ...
+01:13:29 - adding 9-th encoder to optimizer...
+01:13:29 - adding 10-th encoder to optimizer...
+01:13:29 - adding 11-th encoder to optimizer...
+01:13:30 - process[0]: training epoch 0 ...
+01:13:47 - process[0] - epoch 0 - train iter 195 - 18523.4 words/s - loss: 0.5160
+01:13:47 - process[0]: training epoch 1 ...
+01:14:03 - process[0] - epoch 1 - train iter 195 - 17361.1 words/s - loss: 0.4449
+01:14:03 - process[0]: training epoch 2 ...
+01:14:20 - process[0] - epoch 2 - train iter 195 - 17497.3 words/s - loss: 0.4536
+01:14:20 - process[0]: training epoch 3 ...
+01:14:37 - process[0] - epoch 3 - train iter 195 - 17455.3 words/s - loss: 0.4454
+01:14:37 - process[0]: training epoch 4 ...
+01:14:55 - process[0] - epoch 4 - train iter 195 - 16573.8 words/s - loss: 0.3443
+01:14:55 - process[0]: training epoch 5 ...
+01:15:10 - process[0] - epoch 5 - train iter 195 - 18194.0 words/s - loss: 0.3279
+01:15:11 - process[0]: training epoch 6 ...
+01:15:27 - process[0] - epoch 6 - train iter 195 - 17606.8 words/s - loss: 0.3479
+01:15:27 - process[0]: training epoch 7 ...
+01:15:44 - process[0] - epoch 7 - train iter 195 - 16794.6 words/s - loss: 0.3604
+01:15:44 - process[0]: training epoch 8 ...
+01:16:00 - process[0] - epoch 8 - train iter 195 - 17811.8 words/s - loss: 0.3039
+01:16:00 - process[0]: training epoch 9 ...
+01:16:18 - process[0] - epoch 9 - train iter 195 - 17555.0 words/s - loss: 0.3148
+01:16:18 - process[0]: training epoch 10 ...
+01:16:35 - process[0] - epoch 10 - train iter 195 - 17765.8 words/s - loss: 0.3572
+01:16:35 - process[0]: evaluating epoch 10 on dev ...
+01:17:29 - dev set during evaluation: 14470/14463
+01:17:29 - process[0] - dev - epoch 10 - mAP: 0.525 w/ 35 queries
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_4_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_1_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_2_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_3_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_6_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_8_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_5_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_0_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_9_10.txt
+01:17:29 - removing file tmp_5f/mbert-long_fren_dev_7_10.txt
+01:17:29 - process[0]: evaluating epoch 10 on test ...
+01:18:24 - test set during evaluation: 14160/14157
+01:18:24 - process[0] - test - epoch 10 - mAP: 0.523 w/ 35 queries
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_7_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_6_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_8_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_2_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_5_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_0_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_1_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_3_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_9_10.txt
+01:18:24 - removing file tmp_5f/mbert-long_fren_test_4_10.txt
+01:18:24 - process[0]: training epoch 11 ...
+01:18:40 - process[0] - epoch 11 - train iter 195 - 18714.9 words/s - loss: 0.3462
+01:18:40 - process[0]: evaluating epoch 11 on dev ...
+01:19:34 - dev set during evaluation: 14470/14463
+01:19:34 - process[0] - dev - epoch 11 - mAP: 0.530 w/ 35 queries
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_6_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_4_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_9_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_8_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_1_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_0_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_2_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_5_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_7_11.txt
+01:19:34 - removing file tmp_5f/mbert-long_fren_dev_3_11.txt
+01:19:34 - process[0]: evaluating epoch 11 on test ...
+01:20:30 - test set during evaluation: 14160/14157
+01:20:30 - process[0] - test - epoch 11 - mAP: 0.536 w/ 35 queries
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_2_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_7_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_3_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_9_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_4_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_0_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_6_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_8_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_1_11.txt
+01:20:30 - removing file tmp_5f/mbert-long_fren_test_5_11.txt
+01:20:30 - process[0]: training epoch 12 ...
+01:20:47 - process[0] - epoch 12 - train iter 195 - 16966.1 words/s - loss: 0.3074
+01:20:47 - process[0]: evaluating epoch 12 on dev ...
+01:21:38 - dev set during evaluation: 14470/14463
+01:21:38 - process[0] - dev - epoch 12 - mAP: 0.530 w/ 35 queries
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_5_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_2_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_6_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_0_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_7_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_4_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_9_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_1_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_8_12.txt
+01:21:38 - removing file tmp_5f/mbert-long_fren_dev_3_12.txt
+01:21:38 - process[0]: training epoch 13 ...
+01:21:55 - process[0] - epoch 13 - train iter 195 - 17348.9 words/s - loss: 0.2623
+01:21:55 - process[0]: evaluating epoch 13 on dev ...
+01:22:47 - dev set during evaluation: 14470/14463
+01:22:47 - process[0] - dev - epoch 13 - mAP: 0.524 w/ 35 queries
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_8_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_3_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_4_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_7_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_1_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_2_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_9_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_6_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_0_13.txt
+01:22:47 - removing file tmp_5f/mbert-long_fren_dev_5_13.txt
+01:22:47 - process[0]: training epoch 14 ...
+01:23:03 - process[0] - epoch 14 - train iter 195 - 18204.2 words/s - loss: 0.2441
+01:23:03 - process[0]: evaluating epoch 14 on dev ...
+01:23:57 - dev set during evaluation: 14470/14463
+01:23:57 - process[0] - dev - epoch 14 - mAP: 0.523 w/ 35 queries
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_7_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_5_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_3_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_8_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_4_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_1_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_0_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_6_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_9_14.txt
+01:23:57 - removing file tmp_5f/mbert-long_fren_dev_2_14.txt
+01:23:57 - process[0]: training epoch 15 ...
+01:24:14 - process[0] - epoch 15 - train iter 195 - 17631.5 words/s - loss: 0.2987
+01:24:14 - process[0]: evaluating epoch 15 on dev ...
+01:25:04 - dev set during evaluation: 14470/14463
+01:25:04 - process[0] - dev - epoch 15 - mAP: 0.512 w/ 35 queries
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_7_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_9_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_1_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_5_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_4_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_0_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_8_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_3_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_2_15.txt
+01:25:04 - removing file tmp_5f/mbert-long_fren_dev_6_15.txt
+01:25:04 - process[0]: training epoch 16 ...
+01:25:21 - process[0] - epoch 16 - train iter 195 - 17375.6 words/s - loss: 0.2670
+01:25:21 - process[0]: evaluating epoch 16 on dev ...
+01:26:14 - dev set during evaluation: 14470/14463
+01:26:14 - process[0] - dev - epoch 16 - mAP: 0.528 w/ 35 queries
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_1_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_9_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_5_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_6_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_8_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_2_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_3_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_4_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_0_16.txt
+01:26:14 - removing file tmp_5f/mbert-long_fren_dev_7_16.txt
+01:26:14 - process[0]: training epoch 17 ...
+01:26:31 - process[0] - epoch 17 - train iter 195 - 17781.9 words/s - loss: 0.2893
+01:26:31 - process[0]: evaluating epoch 17 on dev ...
+01:27:23 - dev set during evaluation: 14470/14463
+01:27:23 - process[0] - dev - epoch 17 - mAP: 0.524 w/ 35 queries
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_4_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_2_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_1_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_0_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_5_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_9_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_6_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_7_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_8_17.txt
+01:27:23 - removing file tmp_5f/mbert-long_fren_dev_3_17.txt
+01:27:23 - process[0]: training epoch 18 ...
+01:27:40 - process[0] - epoch 18 - train iter 195 - 17524.9 words/s - loss: 0.2935
+01:27:40 - process[0]: evaluating epoch 18 on dev ...
+01:28:32 - dev set during evaluation: 14470/14463
+01:28:32 - process[0] - dev - epoch 18 - mAP: 0.524 w/ 35 queries
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_0_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_8_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_3_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_7_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_1_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_5_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_4_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_2_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_9_18.txt
+01:28:32 - removing file tmp_5f/mbert-long_fren_dev_6_18.txt
+01:28:32 - process[0]: training epoch 19 ...
+01:28:47 - process[0] - epoch 19 - train iter 195 - 18275.2 words/s - loss: 0.2530
+01:28:47 - process[0]: evaluating epoch 19 on dev ...
+01:29:40 - dev set during evaluation: 14470/14463
+01:29:40 - process[0] - dev - epoch 19 - mAP: 0.522 w/ 35 queries
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_7_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_1_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_2_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_8_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_5_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_6_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_3_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_9_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_0_19.txt
+01:29:40 - removing file tmp_5f/mbert-long_fren_dev_4_19.txt
+01:29:40 - [fold 5] best test MAP: 0.536 @ epoch 11
+01:29:40 - [0.5615647683935678, 0.5373796842383733, 0.5118731182196082, 0.5117724678462942, 0.5355110633926691]
+01:29:40 - [35, 36, 35, 35, 35]
+01:29:40 - final MAP: 0.532
