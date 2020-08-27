@@ -8,6 +8,7 @@ from tqdm.auto import tqdm
 # import torch.distributed as dist
 from src.utils import CustomFormatter, set_seed
 from src.dataset.mlqa_dataset import mlqa_dataset
+# import mlqa_evaluation_v1 as mlqa_eval
 # from apex.parallel import DistributedDataParallel
 # from torch.distributed import get_rank, get_world_size
 from transformers.data.processors.squad import SquadResult
@@ -31,12 +32,20 @@ parser.add_argument('--batch_size', type=int, default=2)
 parser.add_argument('--num_epochs', type=int, default=10)
 parser.add_argument('--apex_level', type=str, default="O2")
 parser.add_argument('--seed', type=int, default=611)
+parser.add_argument('--num_ft_layers', type=int)
+parser.add_argument('--squad_version', type=str)
+# parser.add_argument('--lowercase', type=str, default="yes", choices=['yes', 'no'])
 
 args = parser.parse_args()
 
 batch_size = args.batch_size
 model_name = args.model_name
 model_type = args.model_type
+
+if os.path.exists("/home/puxuan"): 
+    home_dir = "/home/puxuan"
+else: 
+    home_dir = "/mnt/home/puxuan"
 
 # slurm_id = os.environ.get('SLURM_JOB_ID')
 model_name_in_path = args.model_name.replace("/", "-")
@@ -98,11 +107,11 @@ if 'mbert' in model_type:
 
     for param in model.bert.embeddings.parameters():
         param.requires_grad = False
-    for l in range(0, 9):
+    for l in range(0, 12-args.num_ft_layers):
         for param in model.bert.encoder.layer[l].parameters():
             param.requires_grad = False
 
-    for l in range(9, 12):
+    for l in range(12-args.num_ft_layers, 12):
         encoder_params += model.bert.encoder.layer[l].parameters()
     encoder_params += model.bert.pooler.parameters()
     projector_params += model.qa_outputs.parameters()
@@ -111,11 +120,11 @@ else:
 
     for param in model.roberta.embeddings.parameters():
         param.requires_grad = False
-    for l in range(0, 9):
+    for l in range(0, 12-args.num_ft_layers):
         for param in model.roberta.encoder.layer[l].parameters():
             param.requires_grad = False
     
-    for l in range(9, 12):
+    for l in range(12-args.num_ft_layers, 12):
         encoder_params += model.roberta.encoder.layer[l].parameters()
     encoder_params += model.roberta.pooler.parameters()
     projector_params += model.qa_outputs.parameters()
@@ -139,7 +148,8 @@ _, train_set = mlqa_dataset(
     a_lang = None,
     q_lang = None,
     tokenizer = tokenizer,
-    model_type = model_type
+    model_type = model_type,
+    squad_version = args.squad_version
 ).squad_convert_examples_to_features(threads=4, global_attention='long' in model_type)
 sampler = RandomSampler(train_set, True)
 train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=False, sampler=sampler)
@@ -155,7 +165,8 @@ def get_eval_datasets(mode, a_lang, q_lang):
         a_lang = a_lang,
         q_lang = q_lang,
         tokenizer = tokenizer,
-        model_type = model_type
+        model_type = model_type,
+        squad_version = args.squad_version
     )
     
     features, dset = mlqa.squad_convert_examples_to_features(threads=4, global_attention='long' in model_type)
@@ -202,8 +213,8 @@ def train():
 ############################################################################## evaluation function ##############################################################################
 
 n_best_size = 3
-max_answer_length = 256
-do_lower_case = True
+max_answer_length = 512
+do_lower_case = True if 'mbert' in model_type else False
 null_score_diff_threshold = 0
 
 def to_list(tensor):
@@ -258,14 +269,15 @@ def evaluate(mode, q_lang, a_lang):
                 all_results.append(result)
 
         # Compute predictions
-        output_prediction_file = os.path.join("qa-pred", f"predictions-{model_name_in_path}.json")
-        output_nbest_file = os.path.join("qa-pred", f"nbest_predictions-{model_name_in_path}.json")
+        output_prediction_file = os.path.join("qa-pred", f"predictions-{model_name_in_path}-{args.num_ft_layers}.json")
+        output_nbest_file = os.path.join("qa-pred", f"nbest_predictions-{model_name_in_path}-{args.num_ft_layers}.json")
 
+        # write predictions
         predictions = compute_predictions_logits(
             examples,
             features,
             all_results,
-            n_best_size, # not sure
+            n_best_size,
             max_answer_length,
             do_lower_case,
             output_prediction_file,
@@ -279,31 +291,46 @@ def evaluate(mode, q_lang, a_lang):
 
         # Compute the F1 and exact scores.
         results = squad_evaluate(examples, predictions)
-        return results['f1'], results['total']
+        return {
+            "f1": results['f1'],
+            "exact_match": results["exact"]
+        }
+
+
 
 ############################################################################## result recording ##############################################################################
 
 best_dev_f1 = {f"{q_lang}{a_lang}": 0.0 for (q_lang, a_lang) in lang_pairs}
 best_test_f1 = {f"{q_lang}{a_lang}": 0.0 for (q_lang, a_lang) in lang_pairs}
+best_test_em = {f"{q_lang}{a_lang}": 0.0 for (q_lang, a_lang) in lang_pairs}
 
 for epoch in range(args.num_epochs):
 
     logger.info(f"training loss @ epoch {epoch}: {train():.3f}")
     torch.cuda.empty_cache()
 
-    for (q_lang, a_lang) in lang_pairs:
+    if epoch >= 5:
 
-        key = f"{q_lang}{a_lang}"
-        dev_f1, dev_n_question = evaluate("dev", q_lang, a_lang)
-        if dev_f1 > best_dev_f1[key]:
-            logger.info(f"epoch {epoch}: dev of {key} increased from {best_dev_f1[key]:.3f} to {dev_f1:.3f}")
-            logger.info(f"evaluating test ...")
-            best_dev_f1[key] = dev_f1
-            best_test_f1[key], _ = evaluate("test", q_lang, a_lang)
+        for (q_lang, a_lang) in lang_pairs:
 
-    logger.info(best_test_f1)
+            key = f"{q_lang}{a_lang}"
+            dev_res = evaluate("dev", q_lang, a_lang)
+            dev_em, dev_f1 = dev_res['exact_match'], dev_res['f1']
+            if dev_f1 > best_dev_f1[key]:
+                logger.info(f"epoch {epoch}: dev of {key} increased from {best_dev_f1[key]:.3f} to {dev_f1:.3f}")
+                logger.info(f"evaluating test ...")
+                best_dev_f1[key] = dev_f1
+                test_res = evaluate("test", q_lang, a_lang)
+                test_em, test_f1 = test_res['exact_match'], test_res['f1']
+                best_test_f1[key] = test_f1
+                best_test_em[key] = test_em
+                
+        logger.info(best_test_f1)
+        logger.info(best_test_em)
 
+for key, value in best_test_f1.items():
+    logger.info(f"{key}: {value:.1f}")
 
-for (q_lang, a_lang) in lang_pairs:
-    key = f"{q_lang}{a_lang}"
-    logger.info(f"{key}: {best_test_f1[key]:.3f}")
+for key, value in best_test_em.items():
+    logger.info(f"{key}: {value:.1f}")
+

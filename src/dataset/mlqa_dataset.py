@@ -77,6 +77,7 @@ class SquadProcessor(DataProcessor):
                     )
 
                     examples.append(example)
+
         return examples
 
 class mlqa_dataset():
@@ -88,20 +89,9 @@ class mlqa_dataset():
         q_lang,
         a_lang,
         tokenizer,
-        model_type
+        model_type,
+        squad_version
         ):
-        
-        if os.path.exists("/home/puxuan"): 
-            home_dir = "/home/puxuan"
-        else: 
-            home_dir = "/mnt/home/puxuan"
-
-        if is_squad:
-            self.data_path = f"{home_dir}/MLQA/MLQA_V1"
-            filename = "train-v2.0.json"
-        else:
-            self.data_path = f"{home_dir}/MLQA/MLQA_V1/{split}"
-            filename = f"{split}-context-{q_lang}-question-{a_lang}.json"
 
         self.is_training = is_training
         self.is_squad = is_squad
@@ -110,6 +100,20 @@ class mlqa_dataset():
         self.processor = SquadProcessor()
         self.tokenizer = tokenizer
         self.model_type = model_type
+        self.squad_version = squad_version
+
+        if os.path.exists("/home/puxuan"): 
+            home_dir = "/home/puxuan"
+        else: 
+            home_dir = "/mnt/home/puxuan"
+
+        if self.is_squad:
+            self.data_path = f"{home_dir}/MLQA/MLQA_V1"
+            filename = f"train-v{self.squad_version}.json"
+        else:
+            self.data_path = f"{home_dir}/MLQA/MLQA_V1/{split}"
+            filename = f"{split}-context-{q_lang}-question-{a_lang}.json"
+
         
         if self.is_training:
             self.examples = self.processor.get_train_examples(self.data_path, filename)
@@ -125,7 +129,10 @@ class mlqa_dataset():
     ):
         cache_path = f"{self.data_path}/cache"
         os.makedirs(cache_path, exist_ok=True)
-        cache_file = f"{cache_path}/modeltype-{self.model_type}_istraining-{self.is_training}_issquad-{self.is_squad}_isglobal-{global_attention}_langs-{self.a_lang}{self.q_lang}.pkl"
+        if self.is_training:
+            cache_file = f"{cache_path}/modeltype-{self.model_type}_squad-{self.squad_version}_isglobal-{global_attention}_vocabsize-{len(self.tokenizer)}.pkl"
+        else:
+            cache_file = f"{cache_path}/modeltype-{self.model_type}_mlqa_isglobal-{global_attention}_langs-{self.a_lang}{self.q_lang}_vocabsize-{len(self.tokenizer)}.pkl"
 
         if not os.path.exists(cache_file):
 

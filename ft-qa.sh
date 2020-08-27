@@ -17,20 +17,26 @@ conda activate rtx
 
 export TOKENIZERS_PARALLELISM=false
 
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm-rr/2186738/huggingface-4 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm-rr/2186738/huggingface-9 --batch_size 32 --num_epochs 10
+# base mbert
+srun python finetune-qa.py --model_type mbert --model_name bert-base-multilingual-uncased --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
 
+# base mbert-long
+#srun python finetune-qa.py --model_type mbert-long --model_name /mnt/home/puxuan/XLM-Trainer/mBertLong/mBert-base-p1024-w64-0 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
 
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-4 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-9 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-14 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-19 --batch_size 32 --num_epochs 10
+# mbert-qlm-rr
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm-rr/2147416/huggingface-4 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm-rr/2147416/huggingface-9 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm-rr/2186738/huggingface-4 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm-rr/2186738/huggingface-9 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
 
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-4 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-9 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-14 --batch_size 32 --num_epochs 10
-# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-19 --batch_size 32 --num_epochs 10
+# mbert-qlm
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-4 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-9 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-14 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_qlm/2186735/huggingface-19 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
 
-# srun python finetune-qa.py --model_type mbert-long --model_name /mnt/scratch/puxuan/long_qlm-rr/2186740/huggingface-2 --batch_size 32 --num_epochs 10
-srun python finetune-qa.py --model_type mbert-long --model_name /mnt/scratch/puxuan/long_qlm-rr/2186742/huggingface-3 --batch_size 32 --num_epochs 10
-
+# # mbert-rr
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-4 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-9 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-14 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
+# srun python finetune-qa.py --model_type mbert --model_name /mnt/scratch/puxuan/short_rr/2186734/huggingface-19 --batch_size 16 --num_epochs 10 --num_ft_layer 12 --squad_version 2.0
