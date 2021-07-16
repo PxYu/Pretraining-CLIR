@@ -44,7 +44,7 @@ Simple! There are just three steps to perform the experiments in our paper:
 
 - Processed multi-lingual Wiki for pretraining: [](). Look at how these data were constructed in our paper!
 - Pretrained checkpoints: [](). Look at the first lines in the training logs to see how each model was trained.
-- Processed CLEF evaluation data: I am not authorized to open-source it because it is not free. But you have access to CLEF and have questions about how to run this model on the data, contact me!
+- Processed CLEF evaluation data: I am not authorized to open-source it because it is not free. But if you have access to CLEF and have questions about how to run this model on the data, contact me!
 
 
 ## Others
