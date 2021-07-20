@@ -31,7 +31,7 @@ Simple! There are just three steps to perform the experiments in our paper:
 
 1. (optional) Convert a mBERT-base model into a BertLong model: `python BertLongForXLRetrieval.py`. This might help a lot if you are dealing with tasks that require long inputs, like document retrieval.
 2. Pretraining with multi-lingual Wiki data: take a look at [train.py](https://github.com/PxYu/Pretraining-CLIR/blob/master/train.py)
-3. Finetune and test: look at [finetune-search-5f.py] for CLIR on CLEF dataset; look at [finetune-qa.py](https://github.com/PxYu/Pretraining-CLIR/blob/master/finetune-qa.py) for CLQA on MLQA dataset.
+3. Finetune and test: look at [finetune-search-5f.py](https://github.com/PxYu/Pretraining-CLIR/blob/master/finetune-search-5f.py) for CLIR on CLEF dataset; look at [finetune-qa.py](https://github.com/PxYu/Pretraining-CLIR/blob/master/finetune-qa.py) for CLQA on MLQA dataset.
 
 
 ### Some other tips:
