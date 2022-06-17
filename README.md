@@ -7,19 +7,19 @@ Hi there! 👋 This repository contains code that supports experiments in our WW
   <img src="https://github.com/PxYu/Pretraining-CLIR/blob/master/pics/task.png" width=80% height=80%>  
 </p>
 
-Note that this is the PyTorch version of the implementation, which is largely based on the [XLM codebase](https://github.com/facebookresearch/XLM) by Facebook AI Research, and the Transformers library by HuggingFace. Many thanks to them! There is also a [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) version, which might be available upon request.
+Note that this is the PyTorch version of the implementation, which is largely based on the [XLM codebase](https://github.com/facebookresearch/XLM) by Facebook AI Research, and the Transformers library (**v3.4.0 recommended**) by HuggingFace. Many thanks to them! There is also a [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) version, which might be available upon request.
 
 ## What is this work doing?
 
-Well, we observe that XLM and mBERT don't work well for multi-lingual **retrieval** tasks (ad-hoc retrieval, QA, etc.). We propose to harvest the large amount of data from multi-lingual Wikipedia to strengthen Transformer-based models' ability to perform well on cross-lingual retrieval tasks. 
+Well, we observe that XLM and mBERT don't work well for multi-lingual **retrieval** tasks (ad-hoc retrieval, QA, etc). We propose to harvest the large amount of data from multi-lingual Wikipedia to strengthen Transformer-based models' ability to perform well on cross-lingual retrieval tasks. 
 
-You can expect substantial improvement over mBERT and XLM on standard cross-lingual datasets, such as CLEF and MLQA. 
+By first pretraining a multi-lingual language model on the supervision data with the QLM (query language modeling) and RR (relevance ranking) objectives, you can expect substantial improvement over mBERT and XLM on standard cross-lingual datasets, such as CLEF and MLQA.
 
 <p align="center">
   <img src="https://github.com/PxYu/Pretraining-CLIR/blob/master/pics/perf.png" width=50% height=50%>
 </p>
 
-Even you are not interested in cross-lingual retrieval, you might still find our work helpful because our model can significantly increase semantic alignment of long-sequence representations (sentence and document level).
+Even you are not interested in cross-lingual retrieval, you might still find our work helpful because our model can significantly increase semantic alignment of *long-sequence representations* (sentence and document level).
 
 <p align="center">
   <img src="https://github.com/PxYu/Pretraining-CLIR/blob/master/pics/xda-perf.png" width=30% height=30%>
@@ -46,7 +46,8 @@ This [link](https://drive.google.com/drive/folders/1Ka4uRJqncxsQ5j7o8rgvRAAkE1Ia
 
 - Processed multi-lingual Wiki for pretraining: Look at how these data were constructed in our paper!
 - Pretrained checkpoints. Look at the first lines in the training logs to see how each model was trained.
-- Processed CLEF evaluation data: I am not authorized to open-source it because it is not free. But if you have access to CLEF and have questions about how to run this model on the data, contact me!
+
+I got asked about this a lot: I am **NOT** authorized to open-source processed CLEF evaluation data because it is not free. But if you have access to CLEF and have questions about how to run this model on the data, please contact me!
 
 
 ## Others
